@@ -1,25 +1,53 @@
-:root {
-  /* variables */
-  --cg-black: rgb(0, 0, 0);
-  --cg-blue: rgb(36, 94, 255);
-  --cg-grey: rgb(243, 243, 243);
-  --cg-white: rgb(255, 255, 255);
-}
-
 html {
   height: 100%;
 }
 
 body {
-  background: var(--cg-grey);
+  background-color: #e8ddb5;
   position: relative;
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: monospace;
 }
 
-/* CSS for navigation */
+main {
+  padding: 0 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a:link {
+  color: blue;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:active {
+  color: red;
+}
+
+a:hover {
+  color: darkblue;
+  text-decoration: none;
+}
+input:focus {
+  border: 1px solid #aaa;
+}
+
+p,
+h1,
+.titles {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #000000;
+}
+
+/* CSS for navigation bar */
 
 .navbar {
   position: -webkit-sticky;
@@ -34,9 +62,9 @@ body {
   align-items: center;
   text-align: center;
 
-  background-color: var(--cg-black);
-  color: var(--cg-white);
-  padding: 0px 0px;
+  background-color: #b2c9ab;
+  color: white;
+  padding: 20px 0px;
 
   /* Debug border */
   /* border: solid red; */
@@ -48,185 +76,81 @@ body {
   position: relative;
   right: 30px;
   list-style: none;
-
-  /* Debug border */
-  /* border: solid blue; */
 }
 
 .navbar a {
-  color: var(--cg-white);
+  color: #131515;
   font-weight: bold;
-  margin: 0 12px;
+  margin: 0 10px;
   text-decoration: none;
   letter-spacing: 2px;
-
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
 .navbar a:hover {
-  color: var(--cg-blue);
+  color: darkblue;
   text-decoration: underline;
 }
 
-.navbar a:active {
-  color: var(--cg-blue);
+.resume {
+  margin: 20px;
+  padding: 20px;
+  border-style: double;
+  border-color: darkolivegreen;
+  border-width: 10px;
 }
 
-.logo a {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+h2 {
+}
+h2:after {
+  content: " ";
+  display: block;
+  border: 2px solid black;
 }
 
-.logo a:hover {
-  text-decoration: None;
-}
+s
 
-main {
-  padding: 0 20px 40px 20px;
+/* CSS for page footer */
+
+.footer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.page-title {
-  display: flex;
-  justify-content: center;
-  font-size: 40px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-/* CSS for portfolio grid */
-
-.project {
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  margin: 1em 0 2em 0;
-
-  /* Debug border */
-  /* border: 2px solid blue; */
-}
-
-.item-link {
-  width: 70%;
-
-  /* Debug border */
-  /* border: 2px solid red; */
-}
-
-.project-image {
-  object-fit: cover;
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 500px;
-  flex-basis: 50px;
-  flex-grow: 2;
-
-  /* Debug border */
-  /* border: 2px solid black; */
+  height: 2.5rem;
 }
-
-.project-details {
-  display: flex;
-  background-color: var(--cg-white);
-  width: 30%;
-  height: 500px;
-  flex-shrink: 1;
-  padding: 0 20px;
-  margin: 0px;
-  line-height: 1.5;
-  overflow: scroll;
-
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-
-  /* Debug border */
-  /* border: 2px solid green; */
-}
-
-.project-details a {
-  color: var(--cg-black);
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.project-details a:hover {
-  color: var(--cg-blue);
-  text-decoration: underline;
-}
-
-.project-details {
-  font-weight: lighter;
-}
-
-.project-name {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-/* CSS for home page */
 
 .about {
+  margin: 20px;
+  padding: 10px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #f8f8f8;
   border: 1px solid #ccc;
   border-radius: 5px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  border-width: 4px;
+  border-color: darkolivegreen;
+  background-color: #d8cda7;
 }
 
-.about-image img {
-  max-width: 300px;
-  border-radius: 3px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+.about-image {
+  width: "50";
+  height: "50";
+  padding: 5px;
 }
 
-.about-text {
-  flex: 1;
-  margin-left: 20px;
+.contact {
+  border-style: solid;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-width: 4px;
+  border-color: darkolivegreen;
+  background-color: #d8cda7;
 }
-
-.about-text h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.about-text p {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-/* CSS for resume page */
-
-.button {
-  background-color: var(--cg-black);
-  border: none;
-  color: var(--cg-white);
-
-  font-family: monospace;
-
-  padding: 5px 7px;
-  text-align: center;
-
-  border-radius: 2px;
-}
-
-.button:hover {
-  background-color: var(--cg-blue);
-}
-
-.resume h2 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-/* CSS for contact form */
 
 label {
   display: block;
@@ -239,7 +163,7 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -254,16 +178,29 @@ form {
   margin: 0 auto;
 }
 
-/* CSS for footer */
+.project {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-width: 4px;
+  border-color: darkolivegreen;
+  background-color: #d8cda7;
+}
+.project:hover {
+  color: green;
+  background-color: #aea688;
+  text-decoration: none;
+}
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--cg-black);
-  color: var(--cg-white);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
+.class {
+  padding: 10px;
+  border-right: darkolivegreen;
+  border-left: darkolivegreen;
+  border-style: double;
+  border-width: 10px;
+  border-top: darkolivegreen;
+  border-bottom: darkolivegreen;
+  border-top-style: solid;
+  border-bottom-style: solid;
 }
