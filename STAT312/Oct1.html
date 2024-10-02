@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <!-- 2024-10-02 Wed 14:12 -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Permutations &amp; Combinations</title>
+    <meta name="author" content="Anthony Rossi" />
+    <meta name="generator" content="Org Mode" />
+    <style type="text/css">
+      #content {
+        max-width: 60em;
+        margin: auto;
+      }
+      .title {
+        text-align: center;
+        margin-bottom: 0.2em;
+      }
+      .subtitle {
+        text-align: center;
+        font-size: medium;
+        font-weight: bold;
+        margin-top: 0;
+      }
+      .todo {
+        font-family: monospace;
+        color: red;
+      }
+      .done {
+        font-family: monospace;
+        color: green;
+      }
+      .priority {
+        font-family: monospace;
+        color: orange;
+      }
+      .tag {
+        background-color: #eee;
+        font-family: monospace;
+        padding: 2px;
+        font-size: 80%;
+        font-weight: normal;
+      }
+      .timestamp {
+        color: #bebebe;
+      }
+      .timestamp-kwd {
+        color: #5f9ea0;
+      }
+      .org-right {
+        margin-left: auto;
+        margin-right: 0px;
+        text-align: right;
+      }
+      .org-left {
+        margin-left: 0px;
+        margin-right: auto;
+        text-align: left;
+      }
+      .org-center {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .underline {
+        text-decoration: underline;
+      }
+      #postamble p,
+      #preamble p {
+        font-size: 90%;
+        margin: 0.2em;
+      }
+      p.verse {
+        margin-left: 3%;
+      }
+      pre {
+        border: 1px solid #e6e6e6;
+        border-radius: 3px;
+        background-color: #f2f2f2;
+        padding: 8pt;
+        font-family: monospace;
+        overflow: auto;
+        margin: 1.2em;
+      }
+      pre.src {
+        position: relative;
+        overflow: auto;
+      }
+      pre.src:before {
+        display: none;
+        position: absolute;
+        top: -8px;
+        right: 12px;
+        padding: 3px;
+        color: #555;
+        background-color: #f2f2f299;
+      }
+      pre.src:hover:before {
+        display: inline;
+        margin-top: 14px;
+      }
+      /* Languages per Org manual */
+      pre.src-asymptote:before {
+        content: "Asymptote";
+      }
+      pre.src-awk:before {
+        content: "Awk";
+      }
+      pre.src-authinfo::before {
+        content: "Authinfo";
+      }
+      pre.src-C:before {
+        content: "C";
+      }
+      /* pre.src-C++ doesn't work in CSS */
+      pre.src-clojure:before {
+        content: "Clojure";
+      }
+      pre.src-css:before {
+        content: "CSS";
+      }
+      pre.src-D:before {
+        content: "D";
+      }
+      pre.src-ditaa:before {
+        content: "ditaa";
+      }
+      pre.src-dot:before {
+        content: "Graphviz";
+      }
+      pre.src-calc:before {
+        content: "Emacs Calc";
+      }
+      pre.src-emacs-lisp:before {
+        content: "Emacs Lisp";
+      }
+      pre.src-fortran:before {
+        content: "Fortran";
+      }
+      pre.src-gnuplot:before {
+        content: "gnuplot";
+      }
+      pre.src-haskell:before {
+        content: "Haskell";
+      }
+      pre.src-hledger:before {
+        content: "hledger";
+      }
+      pre.src-java:before {
+        content: "Java";
+      }
+      pre.src-js:before {
+        content: "Javascript";
+      }
+      pre.src-latex:before {
+        content: "LaTeX";
+      }
+      pre.src-ledger:before {
+        content: "Ledger";
+      }
+      pre.src-lisp:before {
+        content: "Lisp";
+      }
+      pre.src-lilypond:before {
+        content: "Lilypond";
+      }
+      pre.src-lua:before {
+        content: "Lua";
+      }
+      pre.src-matlab:before {
+        content: "MATLAB";
+      }
+      pre.src-mscgen:before {
+        content: "Mscgen";
+      }
+      pre.src-ocaml:before {
+        content: "Objective Caml";
+      }
+      pre.src-octave:before {
+        content: "Octave";
+      }
+      pre.src-org:before {
+        content: "Org mode";
+      }
+      pre.src-oz:before {
+        content: "OZ";
+      }
+      pre.src-plantuml:before {
+        content: "Plantuml";
+      }
+      pre.src-processing:before {
+        content: "Processing.js";
+      }
+      pre.src-python:before {
+        content: "Python";
+      }
+      pre.src-R:before {
+        content: "R";
+      }
+      pre.src-ruby:before {
+        content: "Ruby";
+      }
+      pre.src-sass:before {
+        content: "Sass";
+      }
+      pre.src-scheme:before {
+        content: "Scheme";
+      }
+      pre.src-screen:before {
+        content: "Gnu Screen";
+      }
+      pre.src-sed:before {
+        content: "Sed";
+      }
+      pre.src-sh:before {
+        content: "shell";
+      }
+      pre.src-sql:before {
+        content: "SQL";
+      }
+      pre.src-sqlite:before {
+        content: "SQLite";
+      }
+      /* additional languages in org.el's org-babel-load-languages alist */
+      pre.src-forth:before {
+        content: "Forth";
+      }
+      pre.src-io:before {
+        content: "IO";
+      }
+      pre.src-J:before {
+        content: "J";
+      }
+      pre.src-makefile:before {
+        content: "Makefile";
+      }
+      pre.src-maxima:before {
+        content: "Maxima";
+      }
+      pre.src-perl:before {
+        content: "Perl";
+      }
+      pre.src-picolisp:before {
+        content: "Pico Lisp";
+      }
+      pre.src-scala:before {
+        content: "Scala";
+      }
+      pre.src-shell:before {
+        content: "Shell Script";
+      }
+      pre.src-ebnf2ps:before {
+        content: "ebfn2ps";
+      }
+      /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+      pre.src-cpp:before {
+        content: "C++";
+      }
+      pre.src-abc:before {
+        content: "ABC";
+      }
+      pre.src-coq:before {
+        content: "Coq";
+      }
+      pre.src-groovy:before {
+        content: "Groovy";
+      }
+      /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+      pre.src-bash:before {
+        content: "bash";
+      }
+      pre.src-csh:before {
+        content: "csh";
+      }
+      pre.src-ash:before {
+        content: "ash";
+      }
+      pre.src-dash:before {
+        content: "dash";
+      }
+      pre.src-ksh:before {
+        content: "ksh";
+      }
+      pre.src-mksh:before {
+        content: "mksh";
+      }
+      pre.src-posh:before {
+        content: "posh";
+      }
+      /* Additional Emacs modes also supported by the LaTeX listings package */
+      pre.src-ada:before {
+        content: "Ada";
+      }
+      pre.src-asm:before {
+        content: "Assembler";
+      }
+      pre.src-caml:before {
+        content: "Caml";
+      }
+      pre.src-delphi:before {
+        content: "Delphi";
+      }
+      pre.src-html:before {
+        content: "HTML";
+      }
+      pre.src-idl:before {
+        content: "IDL";
+      }
+      pre.src-mercury:before {
+        content: "Mercury";
+      }
+      pre.src-metapost:before {
+        content: "MetaPost";
+      }
+      pre.src-modula-2:before {
+        content: "Modula-2";
+      }
+      pre.src-pascal:before {
+        content: "Pascal";
+      }
+      pre.src-ps:before {
+        content: "PostScript";
+      }
+      pre.src-prolog:before {
+        content: "Prolog";
+      }
+      pre.src-simula:before {
+        content: "Simula";
+      }
+      pre.src-tcl:before {
+        content: "tcl";
+      }
+      pre.src-tex:before {
+        content: "TeX";
+      }
+      pre.src-plain-tex:before {
+        content: "Plain TeX";
+      }
+      pre.src-verilog:before {
+        content: "Verilog";
+      }
+      pre.src-vhdl:before {
+        content: "VHDL";
+      }
+      pre.src-xml:before {
+        content: "XML";
+      }
+      pre.src-nxml:before {
+        content: "XML";
+      }
+      /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+      pre.src-conf:before {
+        content: "Configuration File";
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+      caption.t-above {
+        caption-side: top;
+      }
+      caption.t-bottom {
+        caption-side: bottom;
+      }
+      td,
+      th {
+        vertical-align: top;
+      }
+      th.org-right {
+        text-align: center;
+      }
+      th.org-left {
+        text-align: center;
+      }
+      th.org-center {
+        text-align: center;
+      }
+      td.org-right {
+        text-align: right;
+      }
+      td.org-left {
+        text-align: left;
+      }
+      td.org-center {
+        text-align: center;
+      }
+      dt {
+        font-weight: bold;
+      }
+      .footpara {
+        display: inline;
+      }
+      .footdef {
+        margin-bottom: 1em;
+      }
+      .figure {
+        padding: 1em;
+      }
+      .figure p {
+        text-align: center;
+      }
+      .equation-container {
+        display: table;
+        text-align: center;
+        width: 100%;
+      }
+      .equation {
+        vertical-align: middle;
+      }
+      .equation-label {
+        display: table-cell;
+        text-align: right;
+        vertical-align: middle;
+      }
+      .inlinetask {
+        padding: 10px;
+        border: 2px solid gray;
+        margin: 10px;
+        background: #ffffcc;
+      }
+      #org-div-home-and-up {
+        text-align: right;
+        font-size: 70%;
+        white-space: nowrap;
+      }
+      textarea {
+        overflow-x: auto;
+      }
+      .linenr {
+        font-size: smaller;
+      }
+      .code-highlighted {
+        background-color: #ffff00;
+      }
+      .org-info-js_info-navigation {
+        border-style: none;
+      }
+      #org-info-js_console-label {
+        font-size: 10px;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      .org-info-js_search-highlight {
+        background-color: #ffff00;
+        color: #000000;
+        font-weight: bold;
+      }
+      .org-svg {
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1 class="logo">
+        <a href="../index.html">Anthony Rossi</a>
+      </h1>
+      <ul class="nav-list">
+        <li><a href="../index.html">home</a></li>
+        <li><a href="../portfolio.html">portfolio</a></li>
+        <li><a href="../resume.html">resume</a></li>
+        <li><a href="../notes.html">notes</a></li>
+      </ul>
+    </nav>
+    <div id="content" class="content">
+      <h1 class="title">Permutations &amp; Combinations</h1>
+      <div id="table-of-contents" role="doc-toc">
+        <h2>Table of Contents</h2>
+        <div id="text-table-of-contents" role="doc-toc">
+          <ul>
+            <li>
+              <a href="#org435756d">1. Permuatations</a>
+              <ul>
+                <li>
+                  <a href="#orgcc264da">1.1. Loose Permutations</a>
+                  <ul>
+                    <li><a href="#org7ca0748">1.1.1. Example</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#org3a79be0">1.2. Regular Permutations</a>
+                  <ul>
+                    <li><a href="#orgb791b9e">1.2.1. Formula</a></li>
+                    <li><a href="#orgfd80fb5">1.2.2. Example</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#orgdeeeff5">2. Combinations</a>
+              <ul>
+                <li><a href="#org993e13d">2.1. Formula</a></li>
+                <li><a href="#org2bf0112">2.2. Examples</a></li>
+                <li><a href="#org23f0f67">2.3. Factorials</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="outline-container-org435756d" class="outline-2">
+        <h2 id="org435756d">
+          <span class="section-number-2">1.</span> Permuatations
+        </h2>
+        <div class="outline-text-2" id="text-1">
+          <p>
+            <b>DEF</b> - numbre of unique ways that objects can be
+            <i>selected</i> or <i>arranged</i>.
+          </p>
+
+          <ol class="org-ol">
+            <li>
+              <i>&ldquo;Loose Permuations&rdquo;</i> (multiple buckets or
+              &ldquo;with replacement&rdquo;)
+            </li>
+
+            <li>
+              (Regular) Permuations (1 bucket or &ldquo;without
+              replacemnt&rdquo;)
+            </li>
+
+            <li>
+              Combinations (1 bucket or &ldquo;without replacement&rdquo;)
+            </li>
+          </ol>
+        </div>
+        <div id="outline-container-orgcc264da" class="outline-3">
+          <h3 id="orgcc264da">
+            <span class="section-number-3">1.1.</span> Loose Permutations
+          </h3>
+          <div class="outline-text-3" id="text-1-1">
+            <p>
+              Permutations where the possiblites are multiplied by each other
+            </p>
+          </div>
+          <div id="outline-container-org7ca0748" class="outline-4">
+            <h4 id="org7ca0748">
+              <span class="section-number-4">1.1.1.</span> Example
+            </h4>
+            <div class="outline-text-4" id="text-1-1-1">
+              <p>
+                <a
+                  href="file:///Users/ant/Downloads/image-cf8416ab-a02b-4498-91e8-e1d2be0c2655.png"
+                  >Graph</a
+                >
+              </p>
+
+              <pre class="example" id="orge5a6586">
+        Mileage(M1, M2, M3), Price(P1, P2), Cost(C1, C2, C3)
+
+        How many car types?
+
+        Sample: M1 P1 C1
+
+
+        Each car can have a range of mileage.
+        Each mileage can have a range of prices.
+        Each price can have a range of cost.
+
+        18 branches -&gt; 18 car types -&gt; *18 permuations*
+
+</pre
+              >
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org3a79be0" class="outline-3">
+          <h3 id="org3a79be0">
+            <span class="section-number-3">1.2.</span> Regular Permutations
+          </h3>
+          <div class="outline-text-3" id="text-1-2"></div>
+          <div id="outline-container-orgb791b9e" class="outline-4">
+            <h4 id="orgb791b9e">
+              <span class="section-number-4">1.2.1.</span> Formula
+            </h4>
+            <div class="outline-text-4" id="text-1-2-1">
+              <p>
+                <b>Order Does Matter</b>
+                (n!)/(n-r)! Permutations where it is usually n-1
+              </p>
+
+              <p>Selecting r elements from the same group of n elements.</p>
+            </div>
+          </div>
+          <div id="outline-container-orgfd80fb5" class="outline-4">
+            <h4 id="orgfd80fb5">
+              <span class="section-number-4">1.2.2.</span> Example
+            </h4>
+            <div class="outline-text-4" id="text-1-2-2">
+              <pre class="example" id="org19be22c">
+        In how many different ways can a union local with
+        a membership of 25 choose a vice president and then a president?
+
+        A, B, C, D, E, ..., Y
+
+        Some Perms: AB, AC, AD, ...
+
+        n = 25
+        r = 2
+
+        vice president can be chosen in 25 ways AND the president in 24 ways.
+
+        Thus, there are 25 * 24 different ways = 600.
+</pre
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-orgdeeeff5" class="outline-2">
+        <h2 id="orgdeeeff5">
+          <span class="section-number-2">2.</span> Combinations
+        </h2>
+        <div class="outline-text-2" id="text-2"></div>
+        <div id="outline-container-org993e13d" class="outline-3">
+          <h3 id="org993e13d">
+            <span class="section-number-3">2.1.</span> Formula
+          </h3>
+          <div class="outline-text-3" id="text-2-1">
+            <p>
+              <b>Have to establish order doesn&rsquo;t matter first!</b>
+            </p>
+
+            <p>&ldquo;n choose r&rdquo;</p>
+
+            <p>n!/r!(n-r)!</p>
+          </div>
+        </div>
+        <div id="outline-container-org2bf0112" class="outline-3">
+          <h3 id="org2bf0112">
+            <span class="section-number-3">2.2.</span> Examples
+          </h3>
+          <div class="outline-text-3" id="text-2-2">
+            <pre class="example" id="orgf944c5f">
+        Let's say you have 4 friends (A, B, C, D),
+        and you want to hang out with 3 of them only.
+        How many possible groups of 3 friends can you form?
+
+        Some Permutations: ABC, ADC, CBD
+
+        n = 4
+        r = 3
+
+        4*3*2 = 24??
+
+        No,
+
+        6 ways of getting same 3 people.
+
+        3*2*1 = 6
+
+        6 ways of selecting the same r objects.
+
+        So,
+
+        divide the 24/6 = 4 total unique groups (combinations)
+
+</pre
+            >
+
+            <pre class="example" id="orgf3b5241">
+        Suppose there are 15 copy machines on campus.
+        In how many ways can 5 of the 15 be selected for inspection?
+
+        n = 15
+        r = 5
+
+        order doesnt matter.
+
+        So,
+
+        (15*14*13*12*11)/5! = 3003 ways.
+</pre
+            >
+
+            <pre class="example" id="org5bcb3d5">
+        How many binary sequences (i.e., sequences of 0’s and 1’s)
+        of length 10 with exactly four 1’s can be formed?
+
+        n = 10
+        r = 4
+
+        Samples:
+        1111000000
+        0000001111
+        0101010100
+
+        Look at 4 positions to reframe them to select a 1.
+
+        1111000000 (P1P2P3P4)
+        0000001111 (P7P8P9P10)
+        0101010100 (P2P4P6P8)
+
+        (10*9*8*7) = 5024 permutations
+
+        P1P2P3P4=P4P3P2P1
+        However, posiiton does NOT MATTER.
+
+        So,
+
+        (10*9*8*7)/(4*3*2)= 210 sequences with four ones.
+
+</pre
+            >
+          </div>
+        </div>
+        <div id="outline-container-org23f0f67" class="outline-3">
+          <h3 id="org23f0f67">
+            <span class="section-number-3">2.3.</span> Factorials
+          </h3>
+          <div class="outline-text-3" id="text-2-3"></div>
+        </div>
+      </div>
+    </div>
+    <div id="postamble" class="status">
+      <p class="date">Date: 2024-10-01 Tue 00:00</p>
+      <p class="author">Author: Anthony Rossi</p>
+      <p class="date">Created: 2024-10-02 Wed 14:12</p>
+    </div>
+  </body>
+</html>
