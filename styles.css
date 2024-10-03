@@ -123,6 +123,12 @@ h2:after {
   height: 2.5rem;
 }
 
+.footer img {
+  padding: 20px;
+  width: 35px;
+  height: auto;
+}
+
 .about {
   margin: 20px;
   padding: 10px;
