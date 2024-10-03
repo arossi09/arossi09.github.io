@@ -42,11 +42,12 @@ input:focus {
 p,
 h1,
 .titles {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Lexend", sans-serif;
   color: #000000;
 }
-
+.page-title {
+  font-size: 40px;
+}
 /* CSS for navigation bar */
 
 .navbar {
@@ -108,16 +109,14 @@ h2:after {
   border: 2px solid black;
 }
 
-s
-
 /* CSS for page footer */
 
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  color: white;
+  background-color: #e8ddb5;
+  color: rgb(0, 0, 0);
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -129,16 +128,32 @@ s
   padding: 10px;
   display: flex;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  border-width: 4px;
+  border-radius: 10px;
+  border-width: 10px;
   border-color: darkolivegreen;
   background-color: #d8cda7;
+  width: 60%;
 }
 
 .about-image {
-  width: "50";
-  height: "50";
-  padding: 5px;
+  align-self: center;
+}
+.about-image img {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  border-width: 3px;
+  border-color: darkolivegreen;
+  width: 250px;
+  height: auto;
+  padding: 0px;
+}
+
+.about-text {
+  padding-left: 10px;
+  padding-right: 0;
+  text-align: left;
+  font-size: larger;
+  width: 100%;
 }
 
 .contact {
@@ -153,11 +168,12 @@ s
 }
 
 label {
-  display: block;
-  margin-bottom: 8px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: darkolivegreen;
 }
 
 input[type="text"],
@@ -171,6 +187,21 @@ textarea {
   font-size: 16px;
   resize: none;
 }
+.contact {
+  text-align: center;
+}
+
+input[type="submit"] {
+  background-color: darkolivegreen;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
 /* Add some spacing to the form */
 form {
@@ -178,19 +209,57 @@ form {
   margin: 0 auto;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .project {
-  margin: 10px 10px;
+  flex: 1 1 30%;
+  max-width: 30%;
+  margin: 20px 5px;
   padding: 10px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  border-width: 4px;
+  border-width: 10px;
   border-color: darkolivegreen;
   background-color: #d8cda7;
+  box-sizing: border-box;
+}
+.project img {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: darkolivegreen;
+}
+
+.project-name {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+.project-description {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: left;
+}
+
+.project img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
 }
 .project:hover {
   color: green;
   background-color: #aea688;
   text-decoration: none;
+  transform: scale(1.05);
+}
+.project-details {
+  text-align: center;
 }
 
 .class {
