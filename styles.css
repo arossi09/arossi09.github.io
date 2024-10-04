@@ -42,6 +42,7 @@ input:focus {
 p,
 h1,
 .titles {
+  margin-bottom: 0;
   font-family: "Lexend", sans-serif;
   color: #000000;
 }
@@ -275,8 +276,9 @@ form {
   text-align: center;
 }
 
-.class {
+.year {
   padding: 10px;
+  padding-top: 0;
   border-right: darkolivegreen;
   border-left: darkolivegreen;
   border-style: double;
@@ -285,4 +287,16 @@ form {
   border-bottom: darkolivegreen;
   border-top-style: solid;
   border-bottom-style: solid;
+}
+
+.year img {
+  float: right;
+  width: 30px;
+  height: auto;
+}
+.year h2:after {
+  margin-top: 0;
+
+  display: block;
+  font-size: small;
 }
