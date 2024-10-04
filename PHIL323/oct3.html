@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-03 Thu 17:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ethical Theories &amp; Virtue Ethics</title>
+<meta name="author" content="Anthony Rossi" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ethical Theories &amp; Virtue Ethics</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1e1b14e">1. Ethical Theories</a>
+<ul>
+<li><a href="#org39e9175">1.1. Irrational ethical theories</a></li>
+<li><a href="#orgf3c43d8">1.2. Reasonably Justifiable Ethical Theories</a></li>
+</ul>
+</li>
+<li><a href="#orgb88b041">2. Virtue Ethics</a>
+<ul>
+<li><a href="#org46c5f1a">2.1. Three Main Concepts, Plus One</a>
+<ul>
+<li><a href="#org09ebea4">2.1.1. <i>Eudaimonia</i> (happiness)</a></li>
+<li><a href="#org1f1e006">2.1.2. <i>Ergon</i> (function)</a></li>
+<li><a href="#org718ea2c">2.1.3. <i>Arete</i> (Virtue)</a></li>
+<li><a href="#org3f6d534">2.1.4. <i>Phronesis</i> (practical wisdom)</a></li>
+</ul>
+</li>
+<li><a href="#orgfe461af">2.2. Four Characters</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1e1b14e" class="outline-2">
+<h2 id="org1e1b14e"><span class="section-number-2">1.</span> Ethical Theories</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org39e9175" class="outline-3">
+<h3 id="org39e9175"><span class="section-number-3">1.1.</span> Irrational ethical theories</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<span class="underline">simple relativism</span>: there is no ethical truth.
+</p>
+
+<p>
+(RESP) If there is no ethical truth, <b>then it applies to itself</b>
+</p>
+
+<p>
+So, it is not true.
+</p>
+
+<p>
+<span class="underline">Perspectivism</span>: every ethical truth is a interpertation/prespective
+</p>
+
+<p>
+<i>reductio on previous claim fails!</i>
+</p>
+
+<p>
+<span class="underline">divine command theory</span> : the ethical trush is whatever <b>God</b> says it is.
+</p>
+
+<p>
+(RESP) gods could not make torturing children ethical if they comand
+you to do it.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf3c43d8" class="outline-3">
+<h3 id="orgf3c43d8"><span class="section-number-3">1.2.</span> Reasonably Justifiable Ethical Theories</h3>
+<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li><p>
+Virtue Ethics
+</p>
+
+<p>
+Really about <b>character</b>
+</p>
+
+<p>
+<i>what type of person should i be</i>
+</p></li>
+<li><p>
+Consequentialism
+</p>
+
+<p>
+Relates to the <b>consuquences</b> and the pursuit of <b>maximizin happiness</b>.
+</p>
+
+<p>
+<a href="oct2.html">Notes On Consquentialism</a>
+</p></li>
+<li><p>
+Deontology
+</p>
+
+<p>
+Based on our duties and respecting someones dignity.
+</p>
+
+<p>
+EX: lying to someone could maximize <b>someones happiness</b> but <b>strip their dignity</b>.
+</p></li>
+<li><p>
+Connections To Justice
+</p>
+
+<p>
+<span class="underline">Virtue Ethics</span>: justice is getting what you deserve
+</p>
+
+<p>
+<span class="underline">Consquentialism</span>: justice is what protects the preconditions of happiness
+</p>
+
+<p>
+<span class="underline">Deontology</span>: Justice onsists in respecting the right of the person
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb88b041" class="outline-2">
+<h2 id="orgb88b041"><span class="section-number-2">2.</span> Virtue Ethics</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org46c5f1a" class="outline-3">
+<h3 id="org46c5f1a"><span class="section-number-3">2.1.</span> Three Main Concepts, Plus One</h3>
+<div class="outline-text-3" id="text-2-1">
+<ol class="org-ol">
+<li>Happiness</li>
+
+<li>Function
+<ul class="org-ul">
+<li>most important characteristic of a human</li>
+</ul></li>
+
+<li>Virtue
+<ul class="org-ul">
+<li>traits that make up that function</li>
+</ul></li>
+</ol>
+
+<p>
+Plust Practical Wisdom
+</p>
+</div>
+<div id="outline-container-org09ebea4" class="outline-4">
+<h4 id="org09ebea4"><span class="section-number-4">2.1.1.</span> <i>Eudaimonia</i> (happiness)</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+(QUESTION) What is the best life, highest of all goods?
+</p>
+
+<p>
+if we know it we can know how to live.
+</p>
+
+<p>
+Answer: <b>HAPPINESS</b>
+</p>
+
+<p>
+<span class="underline">formal properities of the &ldquo;highest good&rdquo;</span>
+</p>
+
+<ul class="org-ul">
+<li>Has to be desired for itself and not a means to get
+something else.</li>
+<li>It should be self-sufficent, cant add anything to
+make it any better.</li>
+</ul>
+
+
+<p>
+Aristotles concept of happiness is <span class="underline">objective</span> not
+subjective.
+</p>
+<ul class="org-ul">
+<li>being healthy or flourishing</li>
+</ul>
+
+<p>
+Is a simulated life that is happy better than a real life that is happy?
+</p>
+
+<p>
+Aristotle says no because a simulated life can have the aspect of it being real
+added to it, meaning it is not the highest form of life.
+</p>
+
+<p>
+Eudaimonia also requires a degree of external good fortune to achieve.
+</p>
+</div>
+</div>
+<div id="outline-container-org1f1e006" class="outline-4">
+<h4 id="org1f1e006"><span class="section-number-4">2.1.2.</span> <i>Ergon</i> (function)</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+If a human has a <b>function</b> then the good doign relys inside this
+this function.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Major Objection: Humans don&rsquo;t have functions
+</p>
+
+<p>
+Whatever is essential to something is that things ergon.
+</p>
+
+<p>
+So, whatever is <b>essential to being a human</b> is its function.
+</p>
+
+<p>
+<b>What is the human ergon ?</b>
+</p>
+
+<p>
+Aristotle Answers: is the activity of the soul in accord with reason
+or requiring reason(rational activity).
+</p></li>
+</ol>
+
+
+<p>
+Therefore: the best good a human being can achieve
+consists in rational activity of the soul in accord
+with virtue.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Major Objection: Aristotles function argument is Invalid.
+</p>
+
+<p>
+Defined what a good human is but not the best for the human.
+</p>
+
+<p>
+<b>The best for a knife is not the same that makes a good knife.</b>
+</p></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org718ea2c" class="outline-4">
+<h4 id="org718ea2c"><span class="section-number-4">2.1.3.</span> <i>Arete</i> (Virtue)</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+The things that <b>helps you preform your function well</b>.
+</p>
+
+<p>
+Has to do with your <span class="underline">feelings</span> as well.
+</p>
+
+<p>
+<b>Objection</b>: but does good performance of the human function make
+one a morally virtous human being?
+</p>
+
+<p>
+<b>Courage</b> is balance between <b>fear</b> and <b>aggression</b> and is needed within
+virtues.
+</p>
+
+<p>
+Important virtue is <b>temperance</b> because it is needed for other virtues.
+</p>
+</div>
+</div>
+<div id="outline-container-org3f6d534" class="outline-4">
+<h4 id="org3f6d534"><span class="section-number-4">2.1.4.</span> <i>Phronesis</i> (practical wisdom)</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<p>
+The ability to <b>reason well</b> about the virtues(why/how should we have them).
+</p>
+
+<p>
+In order to develop <b>wisdom</b> you need <b>experience in life</b> to shape your character.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfe461af" class="outline-3">
+<h3 id="orgfe461af"><span class="section-number-3">2.2.</span> Four Characters</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Good(virtous) =&gt; <b>correctly judges</b> things worth pursuing and chooses the thing to pursue.
+</p>
+
+<ul class="org-ul">
+<li>has <b>desire</b></li>
+<li>wants to donate to charity and does.</li>
+</ul>
+
+<p>
+Bad =&gt; incorectly judges the thing worth pursuing chooses the things NOT worth pursuing and gets pleasure.
+</p>
+
+<p>
+Continent =&gt; <b>correctly judges</b> things and pursues but doesn&rsquo;t want to.
+</p>
+<ul class="org-ul">
+<li>has no <b>desire</b></li>
+</ul>
+
+<p>
+Incontinent =&gt; <b>correctly judges</b> things but does not pursue.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2024-10-03 Thu 00:00</p>
+<p class="author">Author: Anthony Rossi</p>
+<p class="date">Created: 2024-10-03 Thu 17:48</p>
+</div>
+</body>
+</html>
