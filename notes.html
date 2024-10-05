@@ -2,6 +2,16 @@
 
 <html>
   <head>
+    <script>
+      function swapImage() {
+        var image = document.getElementById("catImage");
+        if (image.src.includes("blackcat.png")) {
+          image.src = "images/squish.gif";
+        } else {
+          image.src = "images/blackcat.png";
+        }
+      }
+    </script>
     <title>Anthony Rossi</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -22,7 +32,13 @@
       <h1 class="page-title">Notes</h1>
       <h4>A Personal Repository For My Notes</h4>
       <div class="year">
-        <h2>Fall 2024<img src="images/blackcat.webp" /></h2>
+        <h2>
+          Fall 2024<img
+            id="catImage"
+            src="images/blackcat.png"
+            onclick="swapImage()"
+          />
+        </h2>
         <h3>CS430 Programming Langauges</h3>
         <ul>
           <li><a href="cs430/sep24.html">lecture 2 - 9/25/24 - Structs</a></li>

@@ -53,6 +53,7 @@ h1,
   border: 3px solid #000;
   object-fit: cover;
 }
+
 .page-title {
   font-size: 40px;
 }
@@ -100,6 +101,17 @@ h1,
   color: darkblue;
   text-decoration: underline;
 }
+.logo a {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: -1px;
+  position: relative;
+
+  font-style: italic;
+}
+
+.navbar .logo {
+  margin-top: -5px;
+}
 
 .resume {
   margin: 20px;
@@ -109,8 +121,6 @@ h1,
   border-width: 10px;
 }
 
-h2 {
-}
 h2:after {
   content: " ";
   display: block;
@@ -291,8 +301,10 @@ form {
 
 .year img {
   float: right;
-  width: 30px;
+  width: 50px;
+  position: relative;
   height: auto;
+  top: -15px;
 }
 .year h2:after {
   margin-top: 0;
