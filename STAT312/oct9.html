@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-09 Wed 13:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Binomial Distribution</title>
+<meta name="author" content="Anthony Rossi" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Binomial Distribution</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6c8df54">1. Binomial Probability Distribution</a>
+<ul>
+<li><a href="#org4fb78a6">1.1. characteristics</a></li>
+<li><a href="#orgc862735">1.2. A common practice/guidline</a></li>
+<li><a href="#org2d41824">1.3. Example 1</a></li>
+<li><a href="#org8ae3f48">1.4. Example 2</a></li>
+<li><a href="#org15e87df">1.5. Example 3</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6c8df54" class="outline-2">
+<h2 id="org6c8df54"><span class="section-number-2">1.</span> Binomial Probability Distribution</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org4fb78a6" class="outline-3">
+<h3 id="org4fb78a6"><span class="section-number-3">1.1.</span> characteristics</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Binomial -&gt; <b>2 outocmes</b> {Success or Fail}
+</p>
+
+<p>
+n trials
+</p>
+
+<p>
+independent trials
+</p>
+
+<p>
+Same Probabilty of success throughotu the trial
+</p>
+</div>
+</div>
+<div id="outline-container-orgc862735" class="outline-3">
+<h3 id="orgc862735"><span class="section-number-3">1.2.</span> A common practice/guidline</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+/Sampling without replacement from a large population:
+</p>
+
+<p>
+(trials can be considered independent as long as the sample size is less than 10% of the population size.)/
+</p>
+
+<p>
+n &lt; 10% of N
+</p>
+
+<p>
+[1 million 90% soccer]
+</p>
+
+<p>
+take one from this and the probability of the first is 900,000/1,000,000 1st person
+</p>
+
+<p>
+take another from this and the probability is 899,999/1,000,000 ~ .8999 ~ .9 2nd person
+</p>
+</div>
+</div>
+<div id="outline-container-org2d41824" class="outline-3">
+<h3 id="org2d41824"><span class="section-number-3">1.3.</span> Example 1</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Two electronic components are selected from the production line of 100 such components for thorough inspection. It is known that 90% of the components are &ldquo;good&rdquo;. Find the probability that the two inspected components are &ldquo;good&rdquo;.
+</p>
+
+<p>
+2 outcomes (good or bad)
+</p>
+
+<p>
+n = 2
+</p>
+
+<p>
+2/100 = 2%&lt;10% -&gt; independant
+</p>
+
+<p>
+p = .9%
+</p>
+
+<p>
+<b>Binomial [x]</b>
+</p>
+
+<p>
+<span class="underline">Probability of both being good</span>
+</p>
+
+<p>
+P(both good)
+</p>
+
+<p>
+A = 1st good
+B = 2nd good
+</p>
+
+<p>
+P(AnB) = P(A)*P(B|A)
+</p>
+
+<p>
+(.9)(.9) = .81
+</p>
+
+<p>
+technically it is (.9)(.89) = .8091
+</p>
+
+<p>
+but because its binomial we can assume independance!
+</p>
+</div>
+</div>
+<div id="outline-container-org8ae3f48" class="outline-3">
+<h3 id="org8ae3f48"><span class="section-number-3">1.4.</span> Example 2</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+At 25oC, 80% of a certain type of laser diodes have efficiency above 0.3 mW/mA. For five diodes, selected by simple random sampling from a <b>large population</b> of such diodes, find the probability of the following events.
+</p>
+
+
+<p>
+Success = S = efficiency above .3&#x2026;
+</p>
+
+<p>
+Failure = F = efficiency below .3&#x2026;
+</p>
+
+<p>
+n = 5
+</p>
+
+<p>
+5 from a large population so lets assume its less than 10%
+</p>
+
+<p>
+let X = {# successes}
+</p>
+
+<p>
+p = .8 in each trial
+</p>
+
+<p>
+<b>Binomial [x]</b>
+</p>
+
+<p>
+<span class="underline">find probability of..</span>
+</p>
+
+
+<ol class="org-ol">
+<li><p>
+all five have efficiency above .3 at 25C
+</p>
+
+<p>
+.8<sup>5</sup> = .32768
+</p>
+
+<p>
+So, P(X = 5) = .328
+</p></li>
+
+<li><p>
+only the second diode selected has efficiency below .3 at 25C
+</p>
+
+<p>
+&#x2013;&gt; SFSSS
+</p>
+
+<p>
+Cant have P(x= 4) because F can be anyware
+</p>
+
+<p>
+(.2)*(.8<sup>4</sup>) = .08192
+</p></li>
+
+<li><p>
+Exactly one of the five diodes has effiency below .3 at 25C
+</p>
+
+<p>
+&#x2013;&gt; e.g. FSSSS, SFSSS, &#x2026; , 5 total
+</p>
+
+<p>
+5*(.2)*(.8<sup>4</sup>)
+</p>
+
+<p>
+<b>So, P(x = 4)</b> = .4096
+</p></li>
+
+<li><p>
+exactly two of the five diodes have effiency below .3 at 25C
+</p>
+
+<p>
+&#x2013;&gt; e.g. FSFSS, SFFSS, P1P2 = P2P1 (Order does not matter)
+</p>
+
+<p>
+(5*4)/2! = 10 ways
+</p>
+
+<p>
+10*.2<sup>2</sup>*.8<sup>3</sup> = .2048
+</p></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org15e87df" class="outline-3">
+<h3 id="org15e87df"><span class="section-number-3">1.5.</span> Example 3</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Suppose 70% of all purchases in a certain store are made with credit card. Let X denote the number of credit card uses in the next 10 purchases. (Suppose there is a large population of purchases made at this store.)
+</p>
+
+<p>
+S = {credit, no credit}
+</p>
+
+<p>
+x = (# of credit card uses)
+</p>
+
+<p>
+n = 10 purchases
+</p>
+
+<p>
+P = .7
+</p>
+
+<p>
+Assume independance because large population
+</p>
+
+<p>
+<b>Binomial [x]</b>
+</p>
+
+<p>
+<span class="underline">Find P(5 ≤ X ≤ 8).</span>
+</p>
+
+<p>
+p(x=5) + p(x=6) + p(x=7) + p(x=8)
+</p>
+
+<p>
+<span class="underline">P(x=5)</span>
+</p>
+
+<p>
+SSSSSFFFFF -&gt; .7<sup>5</sup> * .3<sup>5</sup>
+</p>
+
+<p>
+(10 choose 5) * .7<sup>5</sup> * .3<sup>5</sup>
+</p>
+
+<p>
+<span class="underline">P(x=6)</span>
+</p>
+
+<p>
+SSSSSSFFFF -&gt; .7<sup>6</sup> * .3<sup>4</sup>
+</p>
+
+<p>
+(10 choose 6) * .7<sup>6</sup> * .3<sup>4</sup>
+</p>
+
+<p>
+<span class="underline">P(x=7)</span>
+</p>
+
+<p>
+SSSSSSSFFF -&gt; .7<sup>7</sup> * .3<sup>3</sup>
+</p>
+
+<p>
+(10 choose 7) * .7<sup>7</sup> * .3<sup>3</sup>
+</p>
+
+<p>
+<span class="underline">P(x=8)</span>
+</p>
+
+<p>
+SSSSSSSFFF -&gt; .7<sup>8</sup> * .3<sup>2</sup>
+</p>
+
+<p>
+(10 choose 8) * .7<sup>8</sup> * .3<sup>2</sup>
+</p>
+
+
+<p>
+<b>Equation</b>
+</p>
+
+<p>
+&amp;Sigma; r = 5 to 8 (10 choose r) .7<sup>r</sup>*3<sup>(10-r)</sup>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2024-10-09 Wed 00:00</p>
+<p class="author">Author: Anthony Rossi</p>
+<p class="date">Created: 2024-10-09 Wed 13:56</p>
+</div>
+</body>
+</html>
