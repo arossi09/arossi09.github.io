@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-10 Thu 17:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deontological Ethics</title>
+<meta name="author" content="Anthony Rossi" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Deontological Ethics</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org078be13">1. Agenda</a>
+<ul>
+<li><a href="#org60ae304">1.1. <span class="underline">Exam</span></a></li>
+</ul>
+</li>
+<li><a href="#org258d12a">2. Kantian Ethics</a>
+<ul>
+<li><a href="#org368e8c6">2.1. The Formula of the End in Itself</a></li>
+<li><a href="#orgdc9298a">2.2. Maxim</a></li>
+<li><a href="#org6d7bae1">2.3. Ways to Achieve Maxim</a></li>
+<li><a href="#org7a06894">2.4. The Limits to Kantian Ethics</a></li>
+</ul>
+</li>
+<li><a href="#org5657913">3. Discussion</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org078be13" class="outline-2">
+<h2 id="org078be13"><span class="section-number-2">1.</span> Agenda</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org60ae304" class="outline-3">
+<h3 id="org60ae304"><span class="section-number-3">1.1.</span> <span class="underline">Exam</span></h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Exam: <b>take home exam</b> all week to do it.
+</p>
+
+<p>
+CHATGPT answers questions and evaluates if the answer is right.
+</p>
+
+<p>
+<b>You can check the wrong box as long as you explain it correctly</b>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org258d12a" class="outline-2">
+<h2 id="org258d12a"><span class="section-number-2">2.</span> Kantian Ethics</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org368e8c6" class="outline-3">
+<h3 id="org368e8c6"><span class="section-number-3">2.1.</span> The Formula of the End in Itself</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<i>Act in such a way that you always treat humanity, whether in your own person or in the person of any other, never simply as a means but always at the same time as an end.</i>
+</p>
+
+<p>
+<b>Humanity</b>: free choice to make choices that moral or not moral
+</p>
+
+<p>
+act for reasons that anyone can act for in your position.
+</p>
+
+<p>
+You&rsquo;re not intending to use people as <b>means</b> to get something and treat them as <b>ends</b>
+</p>
+
+<p>
+Kantian ethics <i>respects</i> persons, by contrast with
+<span class="underline">Utilitarianism</span>, which does not
+</p>
+</div>
+</div>
+<div id="outline-container-orgdc9298a" class="outline-3">
+<h3 id="orgdc9298a"><span class="section-number-3">2.2.</span> Maxim</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<i>To determine the morality of an act we look at its maxim, not at its consequences such as how much happiness or misery it produces</i>
+</p>
+
+<p>
+<span class="underline">Maxim</span> = &ldquo;the principle on which one sees oneself as acting&rdquo;
+</p>
+<ul class="org-ul">
+<li>have a goal and think of that action as achieveing that goal</li>
+</ul>
+
+<p>
+form: I will do this [action] in order to achieve that [end].
+</p>
+</div>
+</div>
+<div id="outline-container-org6d7bae1" class="outline-3">
+<h3 id="org6d7bae1"><span class="section-number-3">2.3.</span> Ways to Achieve Maxim</h3>
+<div class="outline-text-3" id="text-2-3">
+<ol class="org-ol">
+<li><p>
+<span class="underline">Avoid Using Persons as Mere Means</span>
+</p>
+
+<p>
+To use someone as a mere means is to involve them in a schem of action <i>to which they oculd not in principle consent.</i>
+</p>
+
+<p>
+NOTE: can you people as means, just not as <i>mere</i> means
+</p>
+
+<p>
+Two main ways people cannot possibly consent to
+your maxim of action&#x2026;
+</p>
+
+<p>
+<b>Deception</b> - making a promise with the intention of braeking it
+</p>
+
+<p>
+<b>Coercion</b> - rich or powerful person threatens a debtor with bankruptcy unless he or she joins in some scheme
+</p></li>
+</ol>
+
+
+
+
+<ol class="org-ol">
+<li><p>
+<span class="underline">Treat Persons as Ends in Themselves</span>
+</p>
+
+<p>
+<b>Ends</b> - a persons goal or desires
+</p>
+
+<p>
+Dont decide their ends based on your desires, gather information about their ends from them and help them achieve them.
+</p>
+<ul class="org-ul">
+<li>as long as their ends are moral</li>
+</ul></li>
+</ol>
+
+<p>
+<span class="underline">Justice and Beneficence</span>
+</p>
+
+<p>
+So,
+</p>
+
+<p>
+There is a distinction between the requirments of justice and of beneficence in Kantian ethics. Justice requires that we act on <i>no</i> maxims that use others as mere means. Beneficence requries that we act on <i>some</i> maxims that foster others&rsquo; ends, though it is a matter for judgment and dicscretion which of their ends we foster.
+</p>
+</div>
+</div>
+<div id="outline-container-org7a06894" class="outline-3">
+<h3 id="org7a06894"><span class="section-number-3">2.4.</span> The Limits to Kantian Ethics</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+<span class="underline">Intetnions and Results</span>
+</p>
+
+<p>
+arg: Kantian theory can assess only the
+intentions of acts, but good intentions
+often may result in bad outcomes
+</p>
+
+<p>
+resp: in general, good intentions lead to good outcomes because
+</p>
+
+<p>
+<span class="underline">Utilitarianism and Respect for Life</span>
+</p>
+
+<p>
+Objections: Knowledge, strenuousness, and rights.
+</p>
+
+<p>
+To the objections mills answer is to just follow the rules.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5657913" class="outline-2">
+<h2 id="org5657913"><span class="section-number-2">3.</span> Discussion</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<i>Answer Questions under each Ideology</i>
+</p>
+
+<p>
+<b>What makes a good character?</b>
+</p>
+
+<p>
+<b>What makes a ethical world?</b>
+</p>
+
+<p>
+<b>When is an action morally right?</b>
+</p>
+
+<p>
+<span class="underline">Virtue Ethics</span>
+</p>
+
+<ol class="org-ol">
+<li><b>A person who is constantly flourishing.</b></li>
+
+<li>A world with laws and jurisdiction that rewards people who are achieving good and flourishing.</li>
+
+<li>What the virtous person would do.</li>
+</ol>
+
+<p>
+<span class="underline">Utilitarianism</span>
+</p>
+
+<ol class="org-ol">
+<li>A person that chooses the good for all people willingly and enjoys it.</li>
+
+<li><b>Maximizing happiness</b></li>
+
+<li>When it maximizes happiness</li>
+</ol>
+
+<p>
+<span class="underline">Deontology: Kantian ethics</span>
+</p>
+
+<ol class="org-ol">
+<li>Resilience, strength to do an action even when it contrasts your wants.</li>
+
+<li>Everyones rights are respected and no ones dignity is diminished.</li>
+
+<li><b>Only act on actions that will help achieve a valid end</b></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2024-10-10 Thu 00:00</p>
+<p class="author">Author: Anthony Rossi</p>
+<p class="date">Created: 2024-10-10 Thu 17:53</p>
+</div>
+</body>
+</html>
