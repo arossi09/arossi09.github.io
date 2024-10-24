@@ -312,3 +312,36 @@ form {
   display: block;
   font-size: small;
 }
+.expandable {
+  display: none; /* Hide the lists by default */
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-right: 5px;
+}
+.arrow.rotate {
+  transform: rotate(90deg);
+}
+
+h3 {
+  cursor: pointer;
+}
+
+h3:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+.toggle-header {
+  cursor: pointer; /* Change the cursor to indicate it's clickable */
+}
+
+.toggle-header:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.expandable.active {
+  display: block; /* Show the list when it has the 'active' class */
+}

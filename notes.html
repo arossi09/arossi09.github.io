@@ -12,6 +12,40 @@
         }
       }
     </script>
+    <script>
+      var flipped = false;
+      function toggleExpand(element) {
+        var list = element.nextElementSibling; // Get the next sibling (the <ul>)
+        var arrow = element.querySelector(".arrow"); // Get the arrow element
+
+        if (list.classList.contains("active")) {
+          list.classList.remove("active"); // Hide the list
+          arrow.classList.remove("rotate"); // Reset arrow rotation
+        } else {
+          list.classList.add("active"); // Show the list
+          arrow.classList.add("rotate"); // Rotate arrow
+        }
+      }
+      function toggleAll() {
+        // Get all headers and their corresponding lists
+        var headers = document.querySelectorAll("h3");
+        headers.forEach(function (header) {
+          var list = header.nextElementSibling; // Get the corresponding <ul>
+          var arrow = header.querySelector(".arrow"); // Get the arrow element
+
+          if (flipped) {
+            list.classList.remove("active");
+            arrow.classList.remove("rotate");
+          } else {
+            list.classList.add("active");
+            arrow.classList.add("rotate");
+          }
+        });
+        flipped = !flipped;
+      }
+    </script>
+    <title>Password Protected Page</title>
+
     <title>Anthony Rossi</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -32,15 +66,17 @@
       <h1 class="page-title">Notes</h1>
       <h4>A Personal Repository For My Notes</h4>
       <div class="year">
-        <h2>
+        <h2 class="toggle-header" onclick="toggleAll()">
           Fall 2024<img
             id="catImage"
             src="images/blackcat.png"
             onclick="swapImage()"
           />
         </h2>
-        <h3>CS430 Programming Langauges</h3>
-        <ul>
+        <h3 onclick="toggleExpand(this)">
+          <span class="arrow">▶</span>CS430 Programming Langauges
+        </h3>
+        <ul class="expandable">
           <li><a href="cs430/sep24.html">lecture 2 - 9/25/24 - Structs</a></li>
           <li>
             <a href="cs430/sep27.html">lecture 3 - 9/27/24 - linked lists</a>
@@ -88,10 +124,18 @@
               of AppC in AAQZ 4
             </a>
           </li>
+          <li>
+            <a href="cs430/oct22.html"
+              >lecture 12 - 10/21/24 - Bind & Interpretation<br />
+              of AppC in AAQZ 4
+            </a>
+          </li>
         </ul>
 
-        <h3>STAT312 Stats for Engineers</h3>
-        <ul>
+        <h3 onclick="toggleExpand(this)">
+          <span class="arrow">▶</span>STAT312 Stats for Engineers
+        </h3>
+        <ul class="expandable">
           <li>
             <a href="STAT312/sep25.html"
               >lecture 3 - 9/25/24 - Measueres of Dispersion</a
@@ -160,8 +204,10 @@
           </li>
         </ul>
 
-        <h3>PHIL323 Ethics, Science, and Technology</h3>
-        <ul>
+        <h3 onclick="toggleExpand(this)">
+          <span class="arrow">▶</span>PHIL323 Ethics, Science, and Technology
+        </h3>
+        <ul class="expandable">
           <li>
             <a href="PHIL323/sep26.html"
               >lecture 1 - 9/26/24 - Ethics of Technology</a
@@ -181,6 +227,12 @@
             <a href="PHIL323/oct10.html"
               >lecture 4 - 10/10/24 - Deontological Ethics</a
             >
+          </li>
+        </ul>
+        <h3 onclick="toggleExpand(this)"><span class="arrow">▶</span>CTFS</h3>
+        <ul class="expandable">
+          <li>
+            <a href="CTF/writeup.html">Pwnable Writeups</a>
           </li>
         </ul>
       </div>

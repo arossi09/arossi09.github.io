@@ -15,10 +15,10 @@
         }
       }
     </script>
-    <!-- 2024-10-02 Wed 23:45 -->
+    <!-- 2024-10-23 Wed 21:53 -->
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Match Patterns &amp; Test Review</title>
+    <title>Quiz 3 review and Recursion in AAQZ4</title>
     <meta name="author" content="Anthony Rossi" />
     <meta name="generator" content="Org Mode" />
     <style type="text/css">
@@ -469,217 +469,116 @@
   </head>
   <body onload="checkPassword()">
     <div id="content" class="content">
-      <h1 class="title">Match Patterns &amp; Test Review</h1>
+      <h1 class="title">Quiz 3 review and Recursion in AAQZ4</h1>
       <div id="table-of-contents" role="doc-toc">
         <h2>Table of Contents</h2>
         <div id="text-table-of-contents" role="doc-toc">
           <ul>
-            <li><a href="#org092387c">1. Test Review</a></li>
-            <li><a href="#orgcfee7da">2. Match Patterns and Examples</a></li>
+            <li><a href="#org79b7f8a">1. Quiz 3</a></li>
+            <li><a href="#orgf8ba111">2. Recursion in AAQZ4</a></li>
           </ul>
         </div>
       </div>
-      <div id="outline-container-org092387c" class="outline-2">
-        <h2 id="org092387c">
-          <span class="section-number-2">1.</span> Test Review
-        </h2>
+      <div id="outline-container-org79b7f8a" class="outline-2">
+        <h2 id="org79b7f8a"><span class="section-number-2">1.</span> Quiz 3</h2>
         <div class="outline-text-2" id="text-1">
           <ol class="org-ol">
             <li>
-              <p>Question 1</p>
+              <p>a: (list 7 &ldquo;apple&rdquo; 2) b: (list 4 4 4)</p>
 
-              <p>
-                Q: Write the racket expression that applies a function named
-                mix-otgether to the arguments &ldquo;peanut-butter&rdquo; and
-                &ldquo;pickles&rdquo;.
-              </p>
+              <p>what is (length (cons a b))</p>
 
-              <p>
-                A: (mix-together &ldquo;peanut-butter&rdquo;
-                &ldquo;pickles&rdquo;)
-              </p>
+              <p>= 1 + (length b)</p>
+
+              <p>= 1 + 3</p>
             </li>
 
             <li>
-              <p>Question 2</p>
-
               <p>
-                Q: Write two test cases(using check-equal?) for the
-                threes-in-number function, that accepts an integer and returns
-                the number of occurrences of the digit &rsquo;3&rsquo;
+                a : (list 9 &ldquo;hello&rdquo;) b : (list &ldquo;a&rdquo; 44
+                &ldquo;b&rdquo;)
               </p>
 
-              <p>
-                Too Lazy&#x2026;
-                <a
-                  href="file:///Users/ant/Notes/3rd year/F2024/images/test1.png"
-                  >Test</a
-                >
-              </p>
+              <p>what is (second (cons a b))</p>
+
+              <p>= (first (rest (cons a b)))</p>
+
+              <p>= (first b)</p>
+
+              <p>= &ldquo;a&rdquo;</p>
             </li>
-          </ol>
 
-          <p>&#x2026;</p>
-
-          <ol class="org-ol">
             <li>
-              <p>Question 4</p>
+              <p>&rsquo;(24 () v)</p>
 
-              <p>
-                <span class="underline">Answer</span>
-              </p>
-
-              <p>A = {apple, pear, orange}</p>
-
-              <p>B = {banana}</p>
-
-              <p>AUB = {apple, pear, orange, banana}</p>
-
-              <p>
-                three elements that can be in the set for a choice of it being
-                in or not.
-              </p>
-
-              <p>2<sup>3</sup></p>
-
-              <p>2*2*2 = 8</p>
+              <p>(cons 24 (cons &rsquo;() (cons v &rsquo;())))</p>
             </li>
+
+            <li>
+              (define (whistly [l : (Listof Booleab)]) : String (match l
+              [&rsquo;() &rsquo;()] [(cons f r) &#x2026; (cons f (whistly r))
+              &#x2026;]))
+            </li>
+
+            <li>Match case for langauge</li>
           </ol>
+
+          <div class="org-src-container">
+            <pre class="src src-nil">
+   &lt;exp&gt;::= &lt;real num&gt;
+          | {sub &lt;expr&gt; &lt;rea num&gt;}
+
+</pre
+            >
+          </div>
+
+          <p>
+            <span class="underline">Abstract Syntax Definitions Given</span>
+          </p>
+
+          <p>(define-type Exp (U ListNum Sub))</p>
+
+          <p>(struct LitNum ([n : Real]))</p>
+
+          <p>(struct Sub ([e : Exp] [n : Real])</p>
+
+          <div class="org-src-container">
+            <pre class="src src-nil">
+        (define (parse [c : Sexp]) : Exp
+                (match c
+                 [(? real? n) (LitNum n)]
+                 [(list 'sub x (? real? n)) (sub (parse x) n)]))
+
+</pre
+            >
+          </div>
         </div>
       </div>
-      <div id="outline-container-orgcfee7da" class="outline-2">
-        <h2 id="orgcfee7da">
-          <span class="section-number-2">2.</span> Match Patterns and Examples
+      <div id="outline-container-orgf8ba111" class="outline-2">
+        <h2 id="orgf8ba111">
+          <span class="section-number-2">2.</span> Recursion in AAQZ4
         </h2>
         <div class="outline-text-2" id="text-2">
-          <div class="org-src-container">
-            <pre class="src src-typed/racket">
-; takes in a list of number
-; returns a list where all the
-; numbers are doubled
-
-; double all the numbers in the given list
-(define (double[list: (Listof Real)]) : (Listof Real)
-  (match lst
-    ['() '()]
-    [(cons f r) (cons (* f 2)) (double r)]))
-
-
-(check-equal? (double '(1 2 3) '(2 4 6))
-(check-equal? (double '()) '())
-(check-equal? (double '(0 -5 102)) '(0 -10 204))
-
-</pre
-            >
-          </div>
-
           <p>
-            <span class="underline">How Double Works</span>
+            {bind [fact = {(n) <code>&gt; {if {&lt;</code> n 0 {* n {fact {+ n
+            1}}}}}}]}
           </p>
 
-          <p>
-            (double &rsquo;(10 20)) -&gt; not empty so assigns f to 10 and r to
-            20
-          </p>
+          <p>fact is not in scope here but what if we pass in fact&#x2026;</p>
 
           <p>
-            =(cons (* 2 10) (double &rsquo;(20))) -&gt; form a cons with
-            doubling 10 and calling double on &rsquo;(20)
+            :{bind [fact = {(self n) <code>&gt; {if {&lt;</code> n 0 {* n {self
+            self {+ n 1}}}}}}]}
           </p>
 
-          <p>=(cons 20 (double &rsquo;(20)))</p>
-
-          <p>=(cons 20(cons (* 2 20) (double &rsquo;())))</p>
-
-          <p>=(cons 20 (cons 40 (double &rsquo;())))</p>
-
-          <p>=(cons 20 (cons 40 &rsquo;()))</p>
-
-          <table
-            border="2"
-            cellspacing="0"
-            cellpadding="6"
-            rules="groups"
-            frame="hsides"
-          >
-            <colgroup>
-              <col class="org-left" />
-
-              <col class="org-left" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col" class="org-left">
-                  <span class="underline">Match Patterns</span>
-                </th>
-                <th scope="col" class="org-left">
-                  <span class="underline">Examples</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="org-left">(struct name &lt;pat&gt; &#x2026;)</td>
-                <td class="org-left">
-                  (cons f r), (person n m f), (desk w d h)
-                </td>
-              </tr>
-
-              <tr>
-                <td class="org-left">&lt;constant&gt;</td>
-                <td class="org-left">
-                  &rsquo;(), 5, &ldquo;hello&rdquo;, &rsquo;empty, &#x2026;
-                </td>
-              </tr>
-
-              <tr>
-                <td class="org-left">identifier patterns &lt;id&gt;</td>
-                <td class="org-left">f, r, anythin-else</td>
-              </tr>
-
-              <tr>
-                <td class="org-left">(? &lt;expr&gt; &lt;put&gt;)</td>
-                <td class="org-left">(? even? f)</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="org-src-container">
-            <pre class="src src-typed/racket">
-(define (func [lst : (listof Integer)])
-  (match lst
-    [(cons fst (cons scnd (cons thrd rst)))
-     "There is exactly three elemnts in this list."]))
-
-</pre
-            >
-          </div>
-
-          <div class="org-src-container">
-            <pre class="src src-typed/racket">
-(define (func [lst : (listof Integer)])
-  (match lst
-    [(cons (? even? f) r) (format "first value is even: ~v" f)]
-    [(cons fst (cons scnd (cons thrd rst)))
-     "There is exactly three elemnts in this list."]))
-
-</pre
-            >
-          </div>
-
-          <p>
-            <b>Matches that fall off the end ERROR</b>
-          </p>
-          <ul class="org-ul">
-            <li>add an identifer, [(other) &#x2026; ]</li>
-          </ul>
+          <p>{fact fact 4}}</p>
         </div>
       </div>
     </div>
     <div id="postamble" class="status">
-      <p class="date">Date: 2024-10-02 Wed 00:00</p>
+      <p class="date">Date: 2024-10-23 Wed 00:00</p>
       <p class="author">Author: Anthony Rossi</p>
-      <p class="date">Created: 2024-10-02 Wed 23:45</p>
+      <p class="date">Created: 2024-10-23 Wed 21:53</p>
     </div>
   </body>
 </html>

