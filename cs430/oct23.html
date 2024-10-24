@@ -3,15 +3,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <script>
-      const correctPassword = "Nickgreen17"; // Change this to your password
+      // Show the modal on page load
+      window.onload = function () {
+        document.getElementById("passwordModal").style.display = "block";
+      };
 
       function checkPassword() {
-        const userPassword = prompt(
-          "Please enter the password to access this page:"
-        );
-        if (userPassword !== correctPassword) {
-          alert("Incorrect password. Redirecting to the main page.");
-          window.location.href = "../index.html"; // Change to your main page
+        var password = document.getElementById("passwordInput").value;
+        if (password === "Nickgreen17") {
+          // Replace with your actual password
+          document.getElementById("passwordModal").style.display = "none"; // Hide modal
+          document.getElementById("mainContent").style.display = "block"; // Show content
+        } else {
+          alert("Incorrect password. Please try again.");
         }
       }
     </script>
@@ -467,9 +471,16 @@
       }
     </style>
   </head>
-  <body onload="checkPassword()">
-    <p>This content is protected by a password.</p>
-    <div id="content" class="content">git
+  <body>
+    <div id="passwordModal">
+      <div class="modal-content">
+        <h2>Enter Password</h2>
+        <input type="password" id="passwordInput" placeholder="Password" />
+        <button onclick="checkPassword()">Submit</button>
+      </div>
+    </div>
+    
+    <div id="mainContent" style="display: none" id="content" class="content">
       <h1 class="title">Quiz 3 review and Recursion in AAQZ4</h1>
       <div id="table-of-contents" role="doc-toc">
         <h2>Table of Contents</h2>
