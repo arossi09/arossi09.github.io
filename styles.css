@@ -362,7 +362,7 @@ form {
 }
 
 .expandable.active {
-  display: block; /* Show the list when it has the 'active' class */
+  display: block; 
 }
 .new-stuff {
   margin-top: 40px;
