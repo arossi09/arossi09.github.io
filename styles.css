@@ -19,16 +19,16 @@ main {
 }
 
 a:link {
-  color: blue;
+  color: black;
   text-decoration: underline;
 }
 
 a:visited {
-  color: purple;
+  color: black;
 }
 
 a:active {
-  color: red;
+  color: darkblue;
 }
 
 a:hover {
@@ -362,7 +362,7 @@ form {
 }
 
 .expandable.active {
-  display: block; 
+  display: block;
 }
 .new-stuff {
   margin-top: 40px;
