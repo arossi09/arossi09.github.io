@@ -19,20 +19,20 @@ main {
 }
 
 a:link {
-  color: black;
+  color: darkblue;
   text-decoration: underline;
 }
 
 a:visited {
-  color: black;
+  color: darkblue;
 }
 
 a:active {
-  color: darkblue;
+  color: blue;
 }
 
 a:hover {
-  color: darkblue;
+  color: blue;
   text-decoration: none;
 }
 input:focus {
