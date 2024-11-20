@@ -324,8 +324,8 @@ form {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 .modal-content {
   background-color: #fefefe;
@@ -343,14 +343,15 @@ form {
   transform: rotate(90deg);
 }
 
-h3 {
+.clickable {
   cursor: pointer;
 }
 
-h3:hover {
+.clickable:hover {
   color: darkblue;
   text-decoration: underline;
 }
+
 .toggle-header {
   cursor: pointer; /* Change the cursor to indicate it's clickable */
 }
@@ -362,4 +363,37 @@ h3:hover {
 
 .expandable.active {
   display: block; /* Show the list when it has the 'active' class */
+}
+.new-stuff {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.new-stuff h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.new-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.new-item-gif img {
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.new-item-description {
+  max-width: 500px;
+  text-align: left;
+}
+
+.date-log {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
 }
