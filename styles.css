@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #d1d1d1;
+  background-color: #ffffff;
   position: relative;
   min-height: 100vh;
   padding: 0;
@@ -412,7 +412,7 @@ form {
 }
 
 .content-container {
-  margin: 20px 350px;
+  margin: 40px 375px;
   display: flex;
   height: auto;
   overflow: auto;
