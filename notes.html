@@ -49,248 +49,252 @@
     <title>Anthony Rossi</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <nav class="navbar">
-      <h1 class="logo">
-        <a href="index.html">Anthony Rossi</a>
-      </h1>
-      <ul class="nav-list">
-        <li><a href="index.html">home</a></li>
-        <li><a href="portfolio.html">portfolio</a></li>
-        <li><a href="resume.html">resume</a></li>
-        <li><a href="notes.html">notes</a></li>
-        <li><a href="contact.html">contact</a></li>
-      </ul>
-    </nav>
-    <main>
-      <h1 class="page-title">Notes</h1>
-      <h4>A Personal Repository For My Notes</h4>
-      <div class="year">
-        <h2 class="toggle-header" onclick="toggleAll()">
-          Fall 2024<img
-            id="catImage"
-            src="images/blackcat.png"
-            onclick="swapImage()"
-          />
-        </h2>
-        <h3 class="clickable" onclick="toggleExpand(this)">
-          <span class="arrow">▶</span>CS430 Programming Languages
-        </h3>
-        <ul class="expandable">
-          <li><a href="cs430/sep24.html">lecture 2 - 9/25/24 - Structs</a></li>
-          <li>
-            <a href="cs430/sep27.html">lecture 3 - 9/27/24 - linked lists</a>
-          </li>
-          <li>
-            <a href="cs430/sep30.html">lecture 4 - 9/30/24 - Lists</a>
-          </li>
-          <li>
-            <a href="cs430/oct2.html"
-              >lecture 5 - 10/02/24 - Match Patterns & Quiz 1</a
-            >
-          </li>
-          <li>
-            <a href="cs430/oct4.html"
-              >lecture 6 - 10/04/24 - Start to Parsing</a
-            >
-          </li>
-          <li>
-            <a href="cs430/oct9.html"
-              >lecture 7 - 10/09/24 - The Interpreter(and more parsing)</a
-            >
-          </li>
-          <li>
-            <a href="cs430/oct11.html">lecture 8 - 10/11/24 - AAQZ3</a>
-          </li>
-          <li>
-            <a href="cs430/oct14.html"
-              >lecture 9 - 10/14/24 - Subst & Mutators</a
-            >
-          </li>
-          <li>
-            <a href="cs430/oct16.html"
-              >lecture 10 - 10/16/24 - Higher Order Functions</a
-            >
-          </li>
-          <li>
-            <a href="cs430/oct18.html"
-              >lecture 11 - 10/18/24 - AAQZ4 and moving to <br />
-              Unamed Functions
-            </a>
-          </li>
-          <li>
-            <a href="cs430/oct21.html"
-              >lecture 12 - 10/21/24 - Bind & Interpretation<br />
-              of AppC in AAQZ 4
-            </a>
-          </li>
-          <li>
-            <a href="cs430/oct23.html"
-              >lecture 13 - 10/23/24 - Recursion in AAQZ4 & Quiz 3
-            </a>
-          </li>
-          <li>
-            <a href="cs430/oct25.html"
-              >lecture 14 - 10/25/24 - Recursion worksheet
-            </a>
-          </li>
-          <li>
-            <a href="cs430/oct28.html"
-              >lecture 15 - 10/28/24 - Midterm Review
-            </a>
-          </li>
-          <li>
-            <a href="cs430/nov1.html"
-              >lecture 16 - 11/01/24 - Sequencing & Mutation
-            </a>
-          </li>
-          <li>
-            <a href="cs430/nov4.html"
-              >lecture 17 - 11/04/24 - AAQZ6 Specification
-            </a>
-          </li>
-          <li>
-            <a href="cs430/nov6.html"
-              >lecture 18 - 11/06/24 - Arrays in AAQZ6
-            </a>
-          </li>
-          <li>
-            <a href="cs430/nov8.html">lecture 19 - 11/08/24 - Types I</a>
-          </li>
-          <li>
-            <a href="cs430/nov13.html">lecture 20 - 11/13/24 - Types II</a>
-          </li>
-          <li>
-            <a href="cs430/nov13.html">lecture 20 - 11/13/24 - Types II</a>
-          </li>
-          <li>
-            <a href="cs430/nov15.html">lecture 21 - 11/15/24 - Types III</a>
-          </li>
-          <li>
-            <a href="cs430/nov18.html"
-              >lecture 22 - 11/18/24 - Recbin and Proof Systems</a
-            >
-          </li>
-        </ul>
+  <div class="home-container">
+    <div class="content-container">
+      <body>
+        <nav class="navbar">
+          <h1 class="logo">
+            <a href="index.html">Anthony Rossi's Web Page</a>
+          </h1>
+        </nav>
+        <main>
+          <h1 class="page-title">Notes</h1>
+          <h4>A Personal Repository For My Notes</h4>
+          <div class="year">
+            <h2 class="toggle-header" onclick="toggleAll()">
+              Fall 2024<img
+                id="catImage"
+                src="images/blackcat.png"
+                onclick="swapImage()"
+              />
+            </h2>
+            <h3 class="clickable" onclick="toggleExpand(this)">
+              <span class="arrow">▶</span>CS430 Programming Languages
+            </h3>
+            <ul class="expandable">
+              <li>
+                <a href="cs430/sep24.html">lecture 2 - 9/25/24 - Structs</a>
+              </li>
+              <li>
+                <a href="cs430/sep27.html"
+                  >lecture 3 - 9/27/24 - linked lists</a
+                >
+              </li>
+              <li>
+                <a href="cs430/sep30.html">lecture 4 - 9/30/24 - Lists</a>
+              </li>
+              <li>
+                <a href="cs430/oct2.html"
+                  >lecture 5 - 10/02/24 - Match Patterns & Quiz 1</a
+                >
+              </li>
+              <li>
+                <a href="cs430/oct4.html"
+                  >lecture 6 - 10/04/24 - Start to Parsing</a
+                >
+              </li>
+              <li>
+                <a href="cs430/oct9.html"
+                  >lecture 7 - 10/09/24 - The Interpreter(and more parsing)</a
+                >
+              </li>
+              <li>
+                <a href="cs430/oct11.html">lecture 8 - 10/11/24 - AAQZ3</a>
+              </li>
+              <li>
+                <a href="cs430/oct14.html"
+                  >lecture 9 - 10/14/24 - Subst & Mutators</a
+                >
+              </li>
+              <li>
+                <a href="cs430/oct16.html"
+                  >lecture 10 - 10/16/24 - Higher Order Functions</a
+                >
+              </li>
+              <li>
+                <a href="cs430/oct18.html"
+                  >lecture 11 - 10/18/24 - AAQZ4 and moving to <br />
+                  Unamed Functions
+                </a>
+              </li>
+              <li>
+                <a href="cs430/oct21.html"
+                  >lecture 12 - 10/21/24 - Bind & Interpretation<br />
+                  of AppC in AAQZ 4
+                </a>
+              </li>
+              <li>
+                <a href="cs430/oct23.html"
+                  >lecture 13 - 10/23/24 - Recursion in AAQZ4 & Quiz 3
+                </a>
+              </li>
+              <li>
+                <a href="cs430/oct25.html"
+                  >lecture 14 - 10/25/24 - Recursion worksheet
+                </a>
+              </li>
+              <li>
+                <a href="cs430/oct28.html"
+                  >lecture 15 - 10/28/24 - Midterm Review
+                </a>
+              </li>
+              <li>
+                <a href="cs430/nov1.html"
+                  >lecture 16 - 11/01/24 - Sequencing & Mutation
+                </a>
+              </li>
+              <li>
+                <a href="cs430/nov4.html"
+                  >lecture 17 - 11/04/24 - AAQZ6 Specification
+                </a>
+              </li>
+              <li>
+                <a href="cs430/nov6.html"
+                  >lecture 18 - 11/06/24 - Arrays in AAQZ6
+                </a>
+              </li>
+              <li>
+                <a href="cs430/nov8.html">lecture 19 - 11/08/24 - Types I</a>
+              </li>
+              <li>
+                <a href="cs430/nov13.html">lecture 20 - 11/13/24 - Types II</a>
+              </li>
+              <li>
+                <a href="cs430/nov13.html">lecture 20 - 11/13/24 - Types II</a>
+              </li>
+              <li>
+                <a href="cs430/nov15.html">lecture 21 - 11/15/24 - Types III</a>
+              </li>
+              <li>
+                <a href="cs430/nov18.html"
+                  >lecture 22 - 11/18/24 - Recbin and Proof Systems</a
+                >
+              </li>
+            </ul>
 
-        <h3 class="clickable" onclick="toggleExpand(this)">
-          <span class="arrow">▶</span>STAT312 Stats for Engineers
-        </h3>
-        <ul class="expandable">
-          <li>
-            <a href="STAT312/sep25.html"
-              >lecture 3 - 9/25/24 - Measueres of Dispersion</a
-            >
-          </li>
-          <li>
-            <a href="STAT312/sep26.html"
-              >lecture 4 - 9/26/24 - Pre Probability, R, HW</a
-            >
-          </li>
-          <li>
-            <a href="STAT312/sep30.html">lecture 5 - 9/30/24 - Probability</a>
-          </li>
-          <li>
-            <a href="STAT312/Oct1.html"
-              >lecture 6 - 10/01/24 - Permutations & Combinations</a
-            >
-          </li>
-          <li>
-            <a href="STAT312/oct2.html"
-              >lecture 7 - 10/02/24 - Combinations Practice</a
-            >
-          </li>
-          <li>
-            <a href="STAT312/oct3.html"
-              >lecture 8 - 10/03/24 - Conditional Probability</a
-            >
-          </li>
-          <li>
-            <a href="STAT312/oct7.html"
-              >lecture 9 - 10/07/24 - The Multiplication Rule and<br />
-              Independency</a
-            >
-          </li>
-          <li>
-            <a href="STAT312/oct8.html"
-              >lecture 10 - 10/08/24 - Independence and <br />Discrete Random
-              Variables & Expectations
-            </a>
-          </li>
-          <li>
-            <a href="STAT312/oct9.html"
-              >lecture 11 - 10/09/24 - Binomial Distrubtion
-            </a>
-          </li>
-          <li>
-            <a href="STAT312/oct10.html"
-              >lecture 12 - 10/10/24 - Example Problems & Test Topics
-            </a>
-          </li>
-          <li>
-            <a href="STAT312/oct15.html"
-              >lecture 14 - 10/15/24 - Poisson & Practice Problems for test
-            </a>
-          </li>
-          <li>
-            <a href="STAT312/oct16.html"
-              >lecture 15 - 10/16/24 - More Poisson
-            </a>
-          </li>
-          <li>
-            <a href="STAT312/oct21.html"
-              >lecture 16 - 10/21/24 - More Poisson & Hypergeometric <br />
-              Probability Distribution
-            </a>
-          </li>
-        </ul>
+            <h3 class="clickable" onclick="toggleExpand(this)">
+              <span class="arrow">▶</span>STAT312 Stats for Engineers
+            </h3>
+            <ul class="expandable">
+              <li>
+                <a href="STAT312/sep25.html"
+                  >lecture 3 - 9/25/24 - Measueres of Dispersion</a
+                >
+              </li>
+              <li>
+                <a href="STAT312/sep26.html"
+                  >lecture 4 - 9/26/24 - Pre Probability, R, HW</a
+                >
+              </li>
+              <li>
+                <a href="STAT312/sep30.html"
+                  >lecture 5 - 9/30/24 - Probability</a
+                >
+              </li>
+              <li>
+                <a href="STAT312/Oct1.html"
+                  >lecture 6 - 10/01/24 - Permutations & Combinations</a
+                >
+              </li>
+              <li>
+                <a href="STAT312/oct2.html"
+                  >lecture 7 - 10/02/24 - Combinations Practice</a
+                >
+              </li>
+              <li>
+                <a href="STAT312/oct3.html"
+                  >lecture 8 - 10/03/24 - Conditional Probability</a
+                >
+              </li>
+              <li>
+                <a href="STAT312/oct7.html"
+                  >lecture 9 - 10/07/24 - The Multiplication Rule and<br />
+                  Independency</a
+                >
+              </li>
+              <li>
+                <a href="STAT312/oct8.html"
+                  >lecture 10 - 10/08/24 - Independence and <br />Discrete
+                  Random Variables & Expectations
+                </a>
+              </li>
+              <li>
+                <a href="STAT312/oct9.html"
+                  >lecture 11 - 10/09/24 - Binomial Distrubtion
+                </a>
+              </li>
+              <li>
+                <a href="STAT312/oct10.html"
+                  >lecture 12 - 10/10/24 - Example Problems & Test Topics
+                </a>
+              </li>
+              <li>
+                <a href="STAT312/oct15.html"
+                  >lecture 14 - 10/15/24 - Poisson & Practice Problems for test
+                </a>
+              </li>
+              <li>
+                <a href="STAT312/oct16.html"
+                  >lecture 15 - 10/16/24 - More Poisson
+                </a>
+              </li>
+              <li>
+                <a href="STAT312/oct21.html"
+                  >lecture 16 - 10/21/24 - More Poisson & Hypergeometric <br />
+                  Probability Distribution
+                </a>
+              </li>
+            </ul>
 
-        <h3 class="clickable" onclick="toggleExpand(this)">
-          <span class="arrow">▶</span>PHIL323 Ethics, Science, and Technology
-        </h3>
-        <ul class="expandable">
-          <li>
-            <a href="PHIL323/sep26.html"
-              >lecture 1 - 9/26/24 - Ethics of Technology</a
-            >
-          </li>
-          <li>
-            <a href="PHIL323/oct2.html"
-              >lecture 2 - 10/02/24 - Consequentialism</a
-            >
-          </li>
-          <li>
-            <a href="PHIL323/oct3.html"
-              >lecture 3 - 10/03/24 - Ethical Theory & Virtue Ethics</a
-            >
-          </li>
-          <li>
-            <a href="PHIL323/oct10.html"
-              >lecture 4 - 10/10/24 - Deontological Ethics</a
-            >
-          </li>
-          <li>
-            <a href="PHIL323/oct24.html"
-              >lecture 5 - 10/24/24 - Group Ethic & Unfair Dist Alg Error</a
-            >
-          </li>
-        </ul>
-        <h3 class="clickable" onclick="toggleExpand(this)">
-          <span class="arrow">▶</span>CTFS
-        </h3>
-        <ul class="expandable">
-          <li>
-            <a href="CTF/writeup.html">Pwnable Writeups</a>
-          </li>
-        </ul>
-      </div>
-    </main>
-    <footer class="footer">
-      © 2024 Anthonys Website | All Rights Reserved
-      <a href="https://github.com/arossi09"><img src="github.png" /></a>
-      <a href="https://www.linkedin.com/in/anthony-rossi-11b9a0278/"
-        ><img src="61109.png"
-      /></a>
-    </footer>
-  </body>
+            <h3 class="clickable" onclick="toggleExpand(this)">
+              <span class="arrow">▶</span>PHIL323 Ethics, Science, and
+              Technology
+            </h3>
+            <ul class="expandable">
+              <li>
+                <a href="PHIL323/sep26.html"
+                  >lecture 1 - 9/26/24 - Ethics of Technology</a
+                >
+              </li>
+              <li>
+                <a href="PHIL323/oct2.html"
+                  >lecture 2 - 10/02/24 - Consequentialism</a
+                >
+              </li>
+              <li>
+                <a href="PHIL323/oct3.html"
+                  >lecture 3 - 10/03/24 - Ethical Theory & Virtue Ethics</a
+                >
+              </li>
+              <li>
+                <a href="PHIL323/oct10.html"
+                  >lecture 4 - 10/10/24 - Deontological Ethics</a
+                >
+              </li>
+              <li>
+                <a href="PHIL323/oct24.html"
+                  >lecture 5 - 10/24/24 - Group Ethic & Unfair Dist Alg Error</a
+                >
+              </li>
+            </ul>
+            <h3 class="clickable" onclick="toggleExpand(this)">
+              <span class="arrow">▶</span>CTFS
+            </h3>
+            <ul class="expandable">
+              <li>
+                <a href="CTF/writeup.html">Pwnable Writeups</a>
+              </li>
+            </ul>
+          </div>
+        </main>
+        <footer class="footer">
+          © 2024 Anthonys Website | All Rights Reserved
+          <a href="https://github.com/arossi09"><img src="github.png" /></a>
+          <a href="https://www.linkedin.com/in/anthony-rossi-11b9a0278/"
+            ><img src="61109.png"
+          /></a>
+        </footer>
+      </body>
+    </div>
+  </div>
 </html>

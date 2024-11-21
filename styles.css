@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #e8ddb5;
+  background-color: #d1d1d1;
   position: relative;
   min-height: 100vh;
   padding: 0;
@@ -43,15 +43,9 @@ p,
 h1,
 .titles {
   margin-bottom: 0;
-  font-family: "Lexend", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #000000;
-}
-.logo img {
-  width: 100px;
-  height: auto;
-  border-radius: 50%;
-  border: 3px solid #000;
-  object-fit: cover;
 }
 
 .page-title {
@@ -60,8 +54,6 @@ h1,
 /* CSS for navigation bar */
 
 .navbar {
-  position: -webkit-sticky;
-  position: sticky;
   top: 0;
   width: 100%;
   height: 7%;
@@ -72,10 +64,8 @@ h1,
   align-items: center;
   text-align: center;
 
-  background-color: #b2c9ab;
   color: white;
-  padding: 3px 0px;
-
+  padding: 0px 0px;
   /* Debug border */
   /* border: solid red; */
 }
@@ -90,10 +80,8 @@ h1,
 
 .navbar a {
   color: #131515;
-  font-weight: bold;
   margin: 0 10px;
   text-decoration: none;
-  letter-spacing: 2px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
@@ -102,11 +90,11 @@ h1,
   text-decoration: underline;
 }
 .logo a {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   letter-spacing: -1px;
   position: relative;
-
-  font-style: italic;
+  font-size: larger;
 }
 
 .navbar .logo {
@@ -117,8 +105,9 @@ h1,
   margin: 20px;
   padding: 20px;
   border-style: double;
-  border-color: darkolivegreen;
-  border-width: 10px;
+  border-color: #aad;
+  background-color: rgb(239, 246, 255);
+  border-width: 2px;
 }
 
 h2:after {
@@ -133,7 +122,6 @@ h2:after {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e8ddb5;
   color: rgb(0, 0, 0);
   position: absolute;
   bottom: 0;
@@ -148,15 +136,27 @@ h2:after {
 }
 
 .about {
-  margin: 20px;
-  padding: 10px;
+  margin: 10px;
+  padding: 1px;
   display: flex;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  border-width: 10px;
-  border-color: darkolivegreen;
-  background-color: #d8cda7;
-  width: 60%;
+  border: 1px solid #aad;
+  border-width: 1px;
+  border-color: #aad;
+  background-color: #d2e8ff;
+  width: 40%;
+}
+
+.about h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #a3ccf8;
+  font-size: large;
+  margin: 0;
+}
+
+.about h2:after {
+  content: " ";
+  display: none;
 }
 
 .about-image {
@@ -165,8 +165,8 @@ h2:after {
 .about-image img {
   border: 1px solid #ccc;
   border-radius: 12px;
-  border-width: 3px;
-  border-color: darkolivegreen;
+  border-width: 1px;
+  border-color: rgb(0, 0, 0);
   width: 250px;
   height: auto;
   padding: 0px;
@@ -174,10 +174,10 @@ h2:after {
 
 .about-text {
   padding-left: 10px;
-  padding-right: 0;
+  padding-right: 0px;
   text-align: left;
-  font-size: larger;
-  width: 100%;
+  font-size: 15px;
+  width: 50%;
 }
 
 .contact {
@@ -247,9 +247,9 @@ form {
   padding: 10px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  border-width: 10px;
+  border-width: 2px;
   border-color: darkolivegreen;
-  background-color: #d8cda7;
+  background-color: #eefeff;
   box-sizing: border-box;
 }
 .project img {
@@ -289,14 +289,15 @@ form {
 .year {
   padding: 10px;
   padding-top: 0;
-  border-right: darkolivegreen;
-  border-left: darkolivegreen;
+  border-right: #91c4f9;
+  border-left: #91c4f9;
   border-style: double;
   border-width: 10px;
-  border-top: darkolivegreen;
-  border-bottom: darkolivegreen;
+  border-top: #91c4f9;
+  border-bottom: #91c4f9;
   border-top-style: solid;
   border-bottom-style: solid;
+  background-color: #d2e8ff;
 }
 
 .year img {
@@ -390,10 +391,69 @@ form {
 .new-item-description {
   max-width: 500px;
   text-align: left;
+  padding-right: 10px;
 }
 
 .date-log {
   margin-top: 10px;
   font-style: italic;
   color: #555;
+}
+
+.home-container {
+  overflow: hidden; /* Prevent content from overflowing */
+  position: relative;
+
+  padding: 20px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  background-color: #ffffff;
+}
+
+.content-container {
+  margin: 20px 350px;
+  display: flex;
+  height: auto;
+  overflow: auto;
+  display: block;
+
+  padding: 20px;
+  border-style: solid;
+  border-color: rgb(191, 191, 191);
+  border-width: 1px;
+  background-color: #edf3fa;
+}
+
+.home-box {
+  margin: 10px;
+
+  width: auto;
+  background-color: #d2e8ff;
+}
+
+.home-box h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #a3ccf8;
+  font-size: large;
+  margin: 0;
+}
+
+.home-box h2:after {
+  content: " ";
+  display: none;
+}
+
+.ProjectsOther {
+  display: flex;
+  align-items: flex-start; /* Align items to the top, not stretch */
+  gap: 20px;
+}
+
+ul li p {
+  margin: 0px 0 5px; /* Adds space below each description */
+  font-size: 0.9rem; /* Smaller font size */
+  color: #555; /* Muted color */
+  line-height: 1.4; /* Improve readability */
 }
