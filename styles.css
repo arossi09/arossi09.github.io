@@ -400,23 +400,12 @@ form {
   color: #555;
 }
 
-.home-container {
-  overflow: hidden; /* Prevent content from overflowing */
-  position: relative;
-
-  padding: 20px;
-  border-style: solid;
-  border-color: #000000;
-  border-width: 2px;
-  background-color: #ffffff;
-}
-
 .content-container {
-  margin: 40px 375px;
-  display: flex;
+  margin: 40px auto; /* Centers the container horizontally */
+  max-width: 53%; /* Prevents it from being too wide */
+  display: block;
   height: auto;
   overflow: auto;
-  display: block;
 
   padding: 20px;
   border-style: solid;
