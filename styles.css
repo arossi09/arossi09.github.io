@@ -10,6 +10,11 @@ body {
   margin: 0;
 }
 
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 14pt;
+}
+
 main {
   padding: 0 20px 40px 20px;
   display: flex;
@@ -194,15 +199,7 @@ h2:after {
 .year {
   padding: 10px;
   padding-top: 0;
-  border-right: #91c4f9;
-  border-left: #91c4f9;
-  border-style: double;
-  border-width: 10px;
-  border-top: #91c4f9;
-  border-bottom: #91c4f9;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  background-color: #d2e8ff;
+  background-color: #ffffff;
 }
 
 .year img {
@@ -345,14 +342,19 @@ h2:after {
   display: none;
 }
 
-.ProjectsOther {
-  display: flex;
-  align-items: flex-start; /* Align items to the top, not stretch */
-}
-
 ul li p {
-  margin: 0px 0 5px; /* Adds space below each description */
+  margin: 0px 0 5px;
   font-size: 0.9rem; /* Smaller font size */
   color: #555; /* Muted color */
   line-height: 1.4; /* Improve readability */
+}
+
+p {
+  text-align: justify;
+  display: block;
+  margin-block-start: 10px;
+  margin-block-end: 5px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
 }

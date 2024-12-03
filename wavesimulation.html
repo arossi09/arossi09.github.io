@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Anthony Rossi's Web Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <div class="content-container">
+    <body>
+      <nav class="navbar">
+        <h1 class="logo">
+          <a href="index.html">Anthony Rossi's Web Page</a>
+        </h1>
+      </nav>
+      <main>
+        <h1 style="margin-bottom: 20px">3D wave simulation</h1>
+        <p>
+          Currently, the project consists of a representation of sin and
+          <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a>
+          waves along with GUI support from the
+          <a href="https://github.com/ocornut/imgui">Dear ImGui library</a>.
+        </p>
+
+        <p>
+          As of now there are two ways to draw the sin and Perlin noise wave.
+          The wave can be drawn as points in space connected into polygons using
+          a procedural plane generation, or by individual boxes that change
+          position based on the wave values.
+        </p>
+
+        <p>
+          The simulation is currently being processed by the CPU which I hope to
+          later transfer over to GPU handling involving shaders for better
+          performance. The next step, as of now, would be adding lighting to the
+          world so the simulation isn't restricted to only using the wireframe
+          mode.
+        </p>
+
+        <img
+          src="images/wavesim.gif"
+          alt="Representation of Perlin Noise using OpenGL"
+          width="920"
+        />
+        <p>
+          The simulation has a dynamic light source which applies diffusion and
+          specular light to objects in the world. In short the lighting is being
+          calculated within the fragment shader where the ambient level is the
+          color of the object alone, the diffusion level is the result of the
+          angle that the light hits the object using its normal vector, and the
+          specular light is a result of how close the the cameras position is to
+          the reflection vector from the light source.
+        </p>
+        <p>
+          I also added the ability to drag and move around the light source,
+          this involved calculating the
+          <a href="https://en.wikipedia.org/wiki/Bounding_volume"
+            >AABB(Axis-aligned bounding box)</a
+          >
+          of the light and converting the 2D cordinate of the click to a 3D ray
+          in the world. Then all I had to do was use
+          <a href="https://en.wikipedia.org/wiki/Slab_method"
+            >Ray-AABB intersection</a
+          >
+          formulas to calculate if the click intersects with the box.
+        </p>
+
+        <a href="https://github.com/arossi09/WaveSimulation">Github</a>
+
+        <div class="date-log">
+          <p style="left: 0">Dec 2, 2024</p>
+        </div>
+        <footer class="footer">
+          © 2024 Anthony's Website | All Rights Reserved
+          <a href="https://github.com/arossi09"
+            ><img src="github.png" alt="GitHub"
+          /></a>
+          <a href="https://www.linkedin.com/in/anthony-rossi-11b9a0278/"
+            ><img src="61109.png" alt="LinkedIn"
+          /></a>
+          <a href="https://www.youtube.com/@kine4255"
+            ><img src="images/youtube.png" alt="LinkedIn"
+          /></a>
+        </footer>
+      </main>
+    </body>
+  </div>
+</html>
