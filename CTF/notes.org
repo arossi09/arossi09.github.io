@@ -1,0 +1,53 @@
+#+Title: Stuff I learned while building Rasterizer in c
+#+Author: Anthony Rossi
+
+*Note* /the following is my understanding of the listed topics, which may or may not be correct (:/
+
+**TGA**
+
+Resources
+- https://en.wikipedia.org/wiki/Truevision_TGA
+
+Tga is a image file format, that stands for TrueVision Graphics Association.
+
+The TGA has metadata within the header varying from image/color map specifications
+to the actual image data. The bytes in TGA's are stored in little-endian ordering
+and image data has the option to be compressed with RLE compresssion.
+
+**ROBJ**
+
+Resources
+- https://en.wikipedia.org/wiki/Wavefront_.obj_file
+
+OBJ files are a geometry definition by wavefront. They first start with the
+declerations of verticies in 3d space in the format of "v <vertex 1> <vertex 2> <vertex 3>"
+and then two other specifications for the vertex the texture and normal vectors, but the last
+is what is the most important, the faces. The faces hold multiple set of numbers but the ones
+I am using right now to just draw the triangles are the set of three vectors specified by the
+index into the set of verticies which starts at 1.
+
+**Bresenhams Ling Algorithm**
+
+Resources
+- https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+
+It is what it sounds like, a line algorithm used for guessing the pixels to fill
+along a line formed by two points. From what I could read and understand the 
+algorithm iterates through the x cordinates of the line and calculates the best
+fit y position for each x position. It does this through the use of finding the
+the middle of two points y + 1 and y for each x cordinate and 
+
+
+**Barycentric coordinate system**
+
+Resources
+- https://users.csc.calpoly.edu/~zwood/teaching/csc471/2017F/barycentric.pdf
+- https://www.youtube.com/watch?v=HYAgJN3x4GA
+
+I used the barycentric coordinate system to determine if a point P is inside a triangle
+formed by three points A, B, and C when filling a triangle. The system uses two weight values lets
+say u and v to scale the line segments of two sides of a triangle(AB and AC) based on the cordinate
+of P. With the values of u(AB) and v(AC) we can add these new scaled vectors so that
+they result in the position of P. Using this system we now know if P is inside the triangle
+if u >= 0 and v >= 0 and (u + v)  <= 1.
+
