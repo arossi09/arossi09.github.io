@@ -101,8 +101,8 @@ h1,
   font-family: "IBM";
 }
 .navbar a:hover {
-  color: darkblue;
-  text-decoration:none;
+  color: cyan;
+  text-decoration: none;
 }
 .logo a {
   font-family: "IBM";
@@ -175,6 +175,14 @@ h2:after {
 
 .about-image {
   align-self: center;
+}
+
+.section-title {
+  color: #ccc;
+}
+
+.entry-title {
+  color: rgb(191, 105, 0);
 }
 .about-image img {
   border: 1px solid #000000;
@@ -256,8 +264,7 @@ h2:after {
 }
 
 .clickable:hover {
-  color: darkblue;
-  text-decoration: underline;
+  color: cyan;
 }
 
 .toggle-header {
@@ -265,8 +272,7 @@ h2:after {
 }
 
 .toggle-header:hover {
-  color: darkblue;
-  text-decoration: underline;
+  color: cyan;
 }
 
 .expandable.active {
