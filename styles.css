@@ -1,9 +1,17 @@
+@font-face {
+  font-family: "IBM";
+  src: url("Ac437_IBM_VGA_8x16.ttf");
+}
 html {
   height: 100%;
+  color: grey;
+}
+p.caption > strong {
+  color: white !important;
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #000000;
   position: relative;
   min-height: 100vh;
   padding: 0;
@@ -11,8 +19,8 @@ body {
 }
 
 html {
-  font-family: "Roboto", sans-serif;
-  font-size: 14pt;
+  font-family: "IBM";
+  font-size: 15pt;
 }
 
 main {
@@ -24,8 +32,8 @@ main {
 }
 
 a:link {
-  color: darkblue;
-  text-decoration: underline;
+  color: darkcyan;
+  text-decoration: solid;
 }
 
 .video {
@@ -33,15 +41,15 @@ a:link {
 }
 
 a:visited {
-  color: darkblue;
+  color: darkcyan;
 }
 
 a:active {
-  color: blue;
+  color: yellow;
 }
 
 a:hover {
-  color: blue;
+  color: yellow;
   text-decoration: none;
 }
 input:focus {
@@ -52,9 +60,8 @@ p,
 h1,
 .titles {
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: #000000;
+  font-family: "IBM";
+  color: grey;
 }
 
 .page-title {
@@ -73,7 +80,7 @@ h1,
   align-items: center;
   text-align: center;
 
-  color: rgb(3, 3, 3);
+  color: darkred;
   padding: 0px 0px;
   /* Debug border */
   /* border: solid red; */
@@ -88,18 +95,17 @@ h1,
 }
 
 .navbar a {
-  color: #000000;
+  color: white;
   margin: 0 10px;
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: "IBM";
 }
 .navbar a:hover {
   color: darkblue;
-  text-decoration: underline;
+  text-decoration:none;
 }
 .logo a {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "IBM";
   letter-spacing: -1px;
   position: relative;
   font-size: larger;
@@ -113,16 +119,16 @@ h1,
 .resume {
   margin: 20px;
   padding: 20px;
-  border-style: double;
-  border-color: #aad;
-  background-color: rgb(239, 246, 255);
-  border-width: 2px;
+  background-color: rgb(40, 40, 40);
 }
 
+h2 {
+  color: rgb(191, 105, 0);
+}
 h2:after {
   content: " ";
   display: block;
-  border: 2px solid black;
+  border: 2px solid darkred;
 }
 
 /* CSS for page footer */
@@ -131,7 +137,7 @@ h2:after {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(0, 0, 0);
+  color: dargrey;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -151,14 +157,13 @@ h2:after {
   border: 1px solid #aad;
   border-width: 1px;
   border-color: #aad;
-  background-color: #d2e8ff;
+  background-color: #000000;
   width: 40%;
 }
 
 .about h2 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #a3ccf8;
+  font-family: "IBM";
+  background-color: #000000;
   font-size: large;
   margin: 0;
 }
@@ -172,7 +177,7 @@ h2:after {
   align-self: center;
 }
 .about-image img {
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 12px;
   border-width: 1px;
   border-color: rgb(0, 0, 0);
@@ -199,7 +204,7 @@ h2:after {
 .year {
   padding: 10px;
   padding-top: 0;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .year img {
@@ -302,15 +307,27 @@ h2:after {
   color: #555;
 }
 
+strong {
+  color: #ccc;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid darkred;
+  margin: 1em 0;
+  padding: 0;
+}
+
 .content-container {
   display: block;
   height: auto;
   margin-top: 20px;
   padding: 20px;
   border-style: solid;
-  border-color: rgb(255, 255, 255);
+  border-color: rgb(0, 0, 0);
   border-width: 1px;
-  background-color: #ffffff;
+  background-color: #000000;
   margin-left: auto;
   margin-right: auto;
   width: 960px;
@@ -320,7 +337,7 @@ h2:after {
   margin: 10px;
 
   width: auto;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 @media (max-width: 900px) {
   .content-container {
@@ -330,9 +347,8 @@ h2:after {
 }
 
 .home-box h2 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #ffffff;
+  font-family: "IBM";
+  background-color: #000000;
   font-size: larger;
   margin: 0;
 }
