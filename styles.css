@@ -2,12 +2,17 @@
   font-family: "IBM";
   src: url("Ac437_IBM_VGA_8x16.ttf");
 }
+@font-face {
+  font-family: "IBM-Japanese";
+  src: url("Px437_IBM_PS-55_re.ttf");
+}
+:root {
+  --primary-font: "IBM";
+}
+
 html {
   height: 100%;
   color: grey;
-}
-p.caption > strong {
-  color: white !important;
 }
 
 body {
@@ -19,7 +24,7 @@ body {
 }
 
 html {
-  font-family: "IBM";
+  font-family: var(--primary-font);
   font-size: 15pt;
 }
 
@@ -60,7 +65,7 @@ p,
 h1,
 .titles {
   margin-bottom: 0;
-  font-family: "IBM";
+  font-family: var(--primary-font);
   color: grey;
 }
 
@@ -98,14 +103,14 @@ h1,
   color: white;
   margin: 0 10px;
   text-decoration: none;
-  font-family: "IBM";
+  font-family: var(--primary-font);
 }
 .navbar a:hover {
   color: cyan;
   text-decoration: none;
 }
 .logo a {
-  font-family: "IBM";
+  font-family: var(--primary-font);
   position: relative;
   font-size: larger;
 }
@@ -161,7 +166,7 @@ h2:after {
 }
 
 .about h2 {
-  font-family: "IBM";
+  font-family: var(--primary-font);
   background-color: #000000;
   font-size: large;
   margin: 0;
@@ -352,7 +357,7 @@ hr {
 }
 
 .home-box h2 {
-  font-family: "IBM";
+  font-family: var(--primary-font);
   background-color: #000000;
   font-size: larger;
   margin: 0;
