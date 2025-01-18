@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Anthony Rossi's Web Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <div class="content-container">
+    <body>
+      <nav class="navbar">
+        <h1 class="logo">
+          <a href="index.html">Anthony Rossi's Web Page</a>
+        </h1>
+      </nav>
+      <main>
+        <h4>Progress: <strong>Halfway Done(I think)</strong></h4>
+        <h1 style="margin-bottom: 20px">3D Renderer</h1>
+        <p>
+          Recentally I have delved into the field of computer graphics and
+          wanting to have a better understanding of the core components that go
+          on under the hood of a graphics API such as
+          <a href="https://www.opengl.org/">OpenGl</a> or
+          <a href="https://en.wikipedia.org/wiki/DirectX">DirectX</a> I have
+          decided to build my own 3D Renderer.
+        </p>
+
+        <p>
+          I'm currently using
+          <a href="https://www.realtimerendering.com/">Real-Time Rendering</a>
+          and
+          <a
+            href="https://github.com/ssloy/tinyrenderer/wiki/Lesson-0:-getting-started"
+            >tinyrenderer</a
+          >
+          guide as reference while I build the project from the ground up using
+          C.
+        </p>
+
+        <!--Picture of triangle or something using tga-->
+        <h6>Pictures when I get the chance</h6>
+        <p>
+          To start the project off I used the same strategy from the
+          tinyrenderer guide of reading and writing to a TGA file format. This
+          involved building my own library to be able to read, write, create,
+          and manipulate TGA files. Currently the library is 90% finished
+          however does not support all the functionalities that are available
+          within TGA header options to save focuse for the main goal of the
+          project. With this library it opened up the
+          capabilities of drawing to a image format with code. A simple test was
+          run encapsilating all functionality by creating an image drawing a
+          triangle and saving/writing it to disk.
+        </p>
+
+        <!--Picture of wireframe of person or teapot-->
+        <h6>Pictures when I get the chance</h6>
+        <p>
+          The next step in the project was utilizing OBJ files to load in
+          models. I would create my own library to parse object files into a
+          datastructure I would use to draw each set of verticies to the screen.
+        </p>
+
+        <a href="https://github.com/arossi09/CRast">Github</a>
+
+        <div class="date-log">
+          <p style="left: 0">Jan 17, 2025</p>
+        </div>
+        <footer class="footer">
+          © 2024 Anthony's Website | All Rights Reserved
+          <a href="https://github.com/arossi09"
+            ><img src="github.png" alt="GitHub"
+          /></a>
+          <a href="https://www.linkedin.com/in/anthony-rossi-11b9a0278/"
+            ><img src="61109.png" alt="LinkedIn"
+          /></a>
+          <a href="https://www.youtube.com/@kine4255"
+            ><img src="images/youtube.png" alt="LinkedIn"
+          /></a>
+        </footer>
+      </main>
+    </body>
+  </div>
+</html>

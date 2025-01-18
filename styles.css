@@ -214,9 +214,14 @@ h2:after {
 }
 
 .year {
+  margin: 20px;
   padding: 10px;
   padding-top: 0;
   background-color: #000000;
+}
+
+.years {
+  display: flex;
 }
 
 .year img {
