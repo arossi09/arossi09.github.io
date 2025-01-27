@@ -4,8 +4,9 @@
     <title>Anthony Rossi's Web Page</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <div class="content-container">
-    <body>
+
+  <body>
+    <div id="container">
       <nav class="navbar">
         <h1 class="logo">
           <a href="index.html">Anthony Rossi's Web Page</a>
@@ -16,85 +17,79 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <main>
-        <div class="home-box">
-          <div class="new-item">
-            <div class="new-item-gif">
-              <img src="P1010110.jpeg" alt="deer" width="300" />
-            </div>
+      <div id="flex">
+        <aside id="Projects">
+          <h3 style="text-align: center">Projects</h3>
+          <ul style="list-style-type: square">
+            <li>
+              <a href="3drender.html">3D Renderer</a>
+              <p>3D renderer built from scratch in c</p>
+            </li>
+            <li>
+              <a href="wavesimulation.html">Wave Simulation</a>
+              <p>Representation of Perlin Noise</p>
+            </li>
+            <li>
+              <a href="https://kine13.itch.io/eliana-game">Godot Game</a>
+              <p>Indie Platformer in Godot</p>
+            </li>
+            <li>
+              <a href="https://github.com/arossi09/Code-Analysis"
+                >Code Analyzer</a
+              >
+              <p>Java Github Repository Analyzer</p>
+            </li>
+            <li>
+              <a href="https://github.com/arossi09/TarClone">TarClone</a>
+              <p>Tape Archive in C</p>
+            </li>
+          </ul>
+        </aside>
 
-            <div class="new-item-description">
-              <h3>
-                <--- look at this picture of a deer I took
-                <img src="woah.png" width="10%" alt="woah" />
-              </h3>
-              <p>
-                I'm from <strong>Salinas, CA</strong> and currently in my 3rd
-                year of Computer Science at
-                <strong>Cal Poly San Luis Obispo</strong>.
-              </p>
+        <main>
+          <h2 style="text-align: center; margin-top: -10px">HELLO!</h2>
+          <p>
+            I'm from <strong>Salinas, CA</strong> and currently in my 3rd year
+            of Computer Science at <strong>Cal Poly San Luis Obispo</strong>.
+          </p>
 
-              <p>
-                I find my interests in new technology and programming.
-                Currently, my main interests in the field is
+          <p>
+            I find my interests in new technology and programming. Currently, my
+            main interests in the field is
 
-                <strong>graphics.</strong>
-              </p>
+            <strong>graphics.</strong>
+          </p>
 
-              <p>
-                Other than my academics I also enjoy
-                <strong>playing the guitar</strong>,
-                <strong>working out</strong>, <strong>reading</strong>, and many
-                other activities!
-              </p>
-            </div>
-          </div>
-          <hr />
-        </div>
+          <p>
+            Other than my academics I also enjoy
+            <strong>playing the guitar</strong>, <strong>working out</strong>,
+            <strong>reading</strong>, and many other activities!
+          </p>
+          <h3>
+            Very cool pictures
+            <img src="woah.png" width="10%" alt="woah" />
+          </h3>
+          <marquee direction="right"
+            ><img src="P1010110.jpeg" alt="deer" width="200px" />
+            <img
+              src="images/catwalking.png"
+              width="145px"
+              style="margin-left: 100px"
+          /></marquee>
+        </main>
 
-        <div class="home-box">
-          <h2>Projects</h2>
-          <div class="new-item-description">
-            <ul>
-              <li>
-                <a href="3drender.html">3D Renderer</a>
-                <p>3D renderer built from scratch in c</p>
-              </li>
-              <li>
-                <a href="wavesimulation.html">Wave Simulation</a>
-                <p>Representation of Perlin Noise</p>
-              </li>
-              <li>
-                <a href="https://kine13.itch.io/eliana-game">Godot Game</a>
-                <p>Indie Platformer in Godot</p>
-              </li>
-              <li>
-                <a href="https://github.com/arossi09/Code-Analysis"
-                  >Code Analyzer</a
-                >
-                <p>Java Github Repository Analyzer</p>
-              </li>
-              <li>
-                <a href="https://github.com/arossi09/TarClone">TarClone</a>
-                <p>Tape Archive in C</p>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <aside id="right-sidebar">
+          <h3 style="text-align: center">A.O.T.M</h3>
+          <a href=""><img src="images/album.png" width="130px" /></a>
 
-        <footer class="footer">
-          © 2024 Anthony's Website | All Rights Reserved
-          <a href="https://github.com/arossi09"
-            ><img src="github.png" alt="GitHub"
-          /></a>
-          <a href="https://www.linkedin.com/in/anthony-rossi-11b9a0278/"
-            ><img src="61109.png" alt="LinkedIn"
-          /></a>
-          <a href="https://www.youtube.com/@kine4255"
-            ><img src="images/youtube.png" alt="LinkedIn"
-          /></a>
-        </footer>
-      </main>
-    </body>
-  </div>
+          <marquee>
+            The Replacements - Tim <img src="images/catwalking.gif"
+          /></marquee>
+        </aside>
+      </div>
+      <footer class="footer">
+        © 2024 Anthony's Website | All Rights Reserved
+      </footer>
+    </div>
+  </body>
 </html>

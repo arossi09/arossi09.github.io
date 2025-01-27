@@ -4,7 +4,7 @@
     <title>Anthony Rossi's Web Page</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <div class="content-container">
+  <div id="container">
     <body>
       <nav class="navbar">
         <h1 class="logo">
@@ -37,7 +37,7 @@
 
         <!--Picture of triangle or something using tga-->
         <img src="images/heart.png" />
-        <h6>Heart before I implemented Bresenhams Ling Algorithm</h6>
+        <h6>Heart before I implemented Bresenhams Line Algorithm</h6>
         <p>
           To start the project off I used the same strategy from the
           tinyrenderer guide of reading and writing to a TGA file format. This
@@ -57,8 +57,32 @@
         <p>
           The next step in the project was utilizing OBJ files to load in
           models. I would create my own library to parse object files into a
-          datastructure I would use to draw each set of verticies to the screen.
+          datastructure I would use to draw each set of vertices or face to the
+          screen. I also improved the triangle algorithm to fill the triangle
+          with the specifed color using the bacyrentric coordiante system. With
+          the new triangle algorithm I created a simple light source pointing at
+          the model and calculated the intensity of the light on each face with
+          the normal of the triangle and the direction of the light source.
         </p>
+
+        <!--teapot with no z buffer-->
+        <img src="images/teapo.png" width="400" />
+        <h6>Utah Teapot no z-buffer</h6>
+        <p>
+          As you can see by the spout of the teapot the current state of the
+          renderer did not have a
+          <a href="https://en.wikipedia.org/wiki/Z-buffering">z-buffer</a> or
+          <a href="https://en.wikipedia.org/wiki/Painter%27s_algorithm"
+            >painters algorithm</a
+          >
+          implemented, so I used the references I had to implement a z-buffer.
+          The z-buffer keeps track of each pixel on the screen and compares to
+          see which one is the nearest to the camera.
+        </p>
+
+        <!--Picture with z buffer-->
+        <img src="images/Teapot zbuff.png" width="400" />
+        <h6>Utah Teapot z-buffer</h6>
 
         <a href="https://github.com/arossi09/CRast">Github</a>
 
