@@ -95,6 +95,12 @@ h1,
 
   color: darkred;
   padding: 0px 0px;
+  background-image: url(images/headbg.png);
+  background-repeat: no-repeat;
+  background-size: 600px; /* This stretches the image to cover the screen */
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: pixelated;
   /* Debug border */
   /* border: solid red; */
 }
