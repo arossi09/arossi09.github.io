@@ -38,8 +38,10 @@
         </p>
 
         <!--Picture of triangle or something using tga-->
-        <img src="images/heart.png" />
-        <h6>Heart before I implemented Bresenhams Line Algorithm</h6>
+        <img id="project_image" src="images/heart.png" />
+        <h6 style="text-align: center">
+          Heart before I implemented Bresenhams Line Algorithm
+        </h6>
         <p>
           To start the project off I used the same strategy from the tiny
           renderer guide of reading and writing to a TGA file format. This
@@ -53,9 +55,8 @@
           saving/writing it to disk.
         </p>
 
-        <!--Picture of wireframe of person or teapot-->
-        <img src="images/teapotwireframe.png" width="400" />
-        <h6>Utah Teapot loaded in with OBJ library</h6>
+        <img id="project_image" src="images/triangles.png">
+        
         <p>
           The next step in the project was utilizing OBJ files to load models. I
           would create my own library to parse object files into a data
@@ -67,11 +68,17 @@
           with the normal of the triangle and the direction of the light source.
         </p>
 
+        <!--Picture of wireframe of person or teapot-->
+        <img id="project_image" src="images/teapotwireframe.png" width="400" />
+        <h6 style="text-align: center">
+          Utah Teapot Wireframe loaded in with OBJ library 
+        </h6>
+
         <!--teapot with no z buffer-->
-        <img src="images/teapo.png" width="400" />
-        <h6>Utah Teapot no z-buffer</h6>
+        <img id="project_image" src="images/teapo.png" />
+        <h6 style="text-align: center">Utah Teapot with interpolated triangles--no z-buffer</h6>
         <p>
-          As you can see by the spout of the teapot the current state of the
+          As you can see by the spout of the teapot, the current state of the
           renderer did not have a
           <a href="https://en.wikipedia.org/wiki/Z-buffering">z-buffer</a> or
           <a href="https://en.wikipedia.org/wiki/Painter%27s_algorithm"
@@ -83,8 +90,8 @@
         </p>
 
         <!--Picture with z buffer-->
-        <img src="images/Teapot zbuff.png" width="400" />
-        <h6>Utah Teapot z-buffer</h6>
+        <img id="project_image" src="images/Teapot zbuff.png" width="400" />
+        <h6 style="text-align: center">Utah Teapot z-buffer</h6>
 
         <p>
           The next step in the renderer was to use the texture coordinates("vt
@@ -97,11 +104,14 @@
           barycentric coordinates. I ran into the issue of the texture being
           flipped because of how I designed my TGA loader. For my use, I have it
           so that the image's origin is in the bottom left and builds its way up
-          to the top left, however, for the texture coordinates this was
+          to the top right, however, for the texture coordinates this was
           swapped. So I had to invert the coordinates by subtracting them by 1.
         </p>
 
-        <pre><code style="font-size: medium;">
+        <h6 style="text-align: center">
+          Some texture code to help visualize whats going on
+        </h6>
+        <pre><code style="font-size: medium; padding: 0; margin: 0px;">
         for(int j = 0; j < 3;j++){
           //gather the vertex and vertex texture cordinates
           struct Vec3f v = model.vertices[face.indices[j]-1];
@@ -114,7 +124,7 @@
         texTriangle(screen_coords, text_cords, zbuffer, image, diffuseText, intensity);
       </code></pre>
 
-        <pre><code style="font-size: medium;">
+        <pre><code style="font-size: medium; padding: 0; margin: 0px;">
         void texTriangle(struct Vec3f *pts, struct Vec3f *txtPts, float *zbuffer,
           struct TGA_image image, struct TGA_image diffuseText, float intensity){
           ...
@@ -133,10 +143,29 @@
         ...
           }
 
-      </code></pre>
+          
 
+        </code></pre>
+
+        <p>
+          Below is a model of a cow named spot I took from
+          <a href="https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/"
+            >Keenans repo of 3d models</a
+          >. At the moment I have no camera controls so enjoy this render of his
+          back (:
+        </p>
+        <img id="project_image" src="images/spot.png" style="width: 400px" />
+        <h6 style="text-align: center">
+          <a href="https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/"
+            >Keenans Spot model with diffuse textures</a
+          >
+        </h6>
         <img />
-        <img src="images/under_construction.gif" width="100px" />
+        <img
+          id="project_image"
+          src="images/under_construction.gif"
+          width="100px"
+        />
 
         <br />
         <a href="https://github.com/arossi09/CRast">Github</a>
