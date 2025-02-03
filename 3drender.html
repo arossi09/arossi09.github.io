@@ -21,16 +21,12 @@
         <h4>Progress: <strong>Halfway Done(I think)</strong></h4>
         <h1 style="margin-bottom: 20px">3D Renderer</h1>
         <p>
-          Recentally I have delved into the field of computer graphics and
-          wanting to have a better understanding of the core components that go
-          on under the hood of a graphics API such as
+          Lately, I've been interested to gain a deeper understanding of the
+          fundamental components that power a graphics API behind the scenes,
+          such as
           <a href="https://www.opengl.org/">OpenGl</a> or
-          <a href="https://en.wikipedia.org/wiki/DirectX">DirectX</a> I have
-          decided to build my own 3D Renderer.
-        </p>
-
-        <p>
-          I'm currently using
+          <a href="https://en.wikipedia.org/wiki/DirectX">DirectX</a> so I have
+          decided to build my own 3D Renderer. I'm currently using
           <a href="https://www.realtimerendering.com/">Real-Time Rendering</a>
           and
           <a
@@ -45,14 +41,14 @@
         <img src="images/heart.png" />
         <h6>Heart before I implemented Bresenhams Line Algorithm</h6>
         <p>
-          To start the project off I used the same strategy from the
-          tinyrenderer guide of reading and writing to a TGA file format. This
+          To start the project off I used the same strategy from the tiny
+          renderer guide of reading and writing to a TGA file format. This
           involved building my own library to be able to read, write, create,
-          and manipulate TGA files. Currently the library is 90% finished
-          however does not support all the functionalities that are available
-          within TGA header options to save focuse for the main goal of the
-          project. With this library it opened up the capabilities of drawing to
-          a image format with code. A simple test was run encapsilating all
+          and manipulate TGA files. Currently, the library is 90% finished
+          however, it does not support all the functionalities that are
+          available within TGA header options to save focus for the main goal of
+          the project. This library opened up the capabilities of drawing to an
+          image format with code. A simple test was run encapsulating all
           functionality by creating an image drawing a triangle and
           saving/writing it to disk.
         </p>
@@ -61,14 +57,14 @@
         <img src="images/teapotwireframe.png" width="400" />
         <h6>Utah Teapot loaded in with OBJ library</h6>
         <p>
-          The next step in the project was utilizing OBJ files to load in
-          models. I would create my own library to parse object files into a
-          datastructure I would use to draw each set of vertices or face to the
+          The next step in the project was utilizing OBJ files to load models. I
+          would create my own library to parse object files into a data
+          structure I would use to draw each set of vertices or faces to the
           screen. I also improved the triangle algorithm to fill the triangle
-          with the specifed color using the bacyrentric coordiante system. With
-          the new triangle algorithm I created a simple light source pointing at
-          the model and calculated the intensity of the light on each face with
-          the normal of the triangle and the direction of the light source.
+          with the specified color using the barycentric coordinate system. With
+          the new triangle algorithm, I created a simple light source pointing
+          at the model and calculated the intensity of the light on each face
+          with the normal of the triangle and the direction of the light source.
         </p>
 
         <!--teapot with no z buffer-->
@@ -90,6 +86,56 @@
         <img src="images/Teapot zbuff.png" width="400" />
         <h6>Utah Teapot z-buffer</h6>
 
+        <p>
+          The next step in the renderer was to use the texture coordinates("vt
+          ...") from the object file to map the textures onto the triangles.
+          After I updated the OBJ parsing library to hold the vertex texture
+          values I altered my triangle function to interpolate the textures
+          throughout each triangle. My approach was to save the texture
+          coordinates and send them to the triangle function where the u and v
+          coordinates would be calculated based on the weights from the
+          barycentric coordinates. I ran into the issue of the texture being
+          flipped because of how I designed my TGA loader. For my use, I have it
+          so that the image's origin is in the bottom left and builds its way up
+          to the top left, however, for the texture coordinates this was
+          swapped. So I had to invert the coordinates by subtracting them by 1.
+        </p>
+
+        <pre><code style="font-size: medium;">
+        for(int j = 0; j < 3;j++){
+          //gather the vertex and vertex texture cordinates
+          struct Vec3f v = model.vertices[face.indices[j]-1];
+          struct Vec3f vt= model.vtextures[face.vt_indices[j]-1];
+          ...
+          text_cords[j] = vt;
+        }
+        ...
+        //send the text cordinates & diffuseText to triangle function
+        texTriangle(screen_coords, text_cords, zbuffer, image, diffuseText, intensity);
+      </code></pre>
+
+        <pre><code style="font-size: medium;">
+        void texTriangle(struct Vec3f *pts, struct Vec3f *txtPts, float *zbuffer,
+          struct TGA_image image, struct TGA_image diffuseText, float intensity){
+          ...
+          //generate the barycentric cordinates based off Point
+          struct Vec3f bc_screen = barycentric(pts, P);
+          ...
+          // calculate the texture u and v interpolated values
+          float u = 1.0f - (txtPts[0].x * bc_screen.x + txtPts[1].x * bc_screen.y + txtPts[2].x * bc_screen.z);
+          float v = 1.0f - (txtPts[0].y * bc_screen.x + txtPts[1].y * bc_screen.y + txtPts[2].y * bc_screen.z);
+          //gather the actual pixel cordiantes
+          int tex_x = (int)(u*diffuseText.header.width);
+          int tex_y = (int)(v*diffuseText.header.height);
+
+          //gather the color from the diffuesText tga with these cordinates
+          tex_color = getPixel(diffuseText, tex_x, tex_y);
+        ...
+          }
+
+      </code></pre>
+
+        <img />
         <img src="images/under_construction.gif" width="100px" />
 
         <br />
