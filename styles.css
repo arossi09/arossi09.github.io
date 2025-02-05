@@ -356,3 +356,31 @@ marquee {
   border-width: 2px;
   border-color: black;
 }
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  gap: 1rem;
+  position: relative;
+  user-select: none;
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 1rem;
+}
+
+@keyframes scroll {
+  from {
+    translate: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
+.scroll {
+  animation: scroll 10s linear infinite;
+}

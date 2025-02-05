@@ -6,8 +6,15 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <div id="container">
-    <body>
-      <nav class="navbar">
+    <body
+      style="
+        background-image: url('images/stars\ 10.gif');
+        background-attachment: fixed;
+        background-repeat: repeat;
+        background-size: 600px;
+      "
+    >
+      <nav class="navbar" style="background-image: none">
         <h1 class="logo">
           <a href="index.html">Anthony Rossi's Web Page</a>
         </h1>
@@ -18,8 +25,30 @@
         </ul>
       </nav>
       <main>
-        <h4>Progress: <strong>Halfway Done(I think)</strong></h4>
-        <h1 style="margin-bottom: 20px">3D Renderer</h1>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: -125px;
+          "
+        >
+          <img src="images/wizard1.gif" />
+          <h1 style="margin-bottom: 20px">
+            <div>
+              <span style="color: #000000">C</span
+              ><span style="color: #000d40">R</span
+              ><span style="color: #001b80">a</span
+              ><span style="color: #0028bf">s</span
+              ><span style="color: #0035ff">t</span>
+            </div>
+          </h1>
+        </div>
+
+        <h4 style="text-align: center">
+          Progress: <strong>Halfway Done(I think)</strong>
+        </h4>
+
         <p>
           Lately, I've been interested to gain a deeper understanding of the
           fundamental components that power a graphics API behind the scenes,
@@ -55,8 +84,8 @@
           saving/writing it to disk.
         </p>
 
-        <img id="project_image" src="images/triangles.png">
-        
+        <img id="project_image" src="images/triangles.png" />
+
         <p>
           The next step in the project was utilizing OBJ files to load models. I
           would create my own library to parse object files into a data
@@ -71,12 +100,14 @@
         <!--Picture of wireframe of person or teapot-->
         <img id="project_image" src="images/teapotwireframe.png" width="400" />
         <h6 style="text-align: center">
-          Utah Teapot Wireframe loaded in with OBJ library 
+          Utah Teapot Wireframe loaded in with OBJ library
         </h6>
 
         <!--teapot with no z buffer-->
         <img id="project_image" src="images/teapo.png" />
-        <h6 style="text-align: center">Utah Teapot with interpolated triangles--no z-buffer</h6>
+        <h6 style="text-align: center">
+          Utah Teapot with interpolated triangles--no z-buffer
+        </h6>
         <p>
           As you can see by the spout of the teapot, the current state of the
           renderer did not have a
