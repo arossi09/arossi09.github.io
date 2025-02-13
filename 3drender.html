@@ -185,18 +185,39 @@
           >. At the moment I have no camera controls so enjoy this render of his
           back (:
         </p>
-        <img id="project_image" src="images/spot.png" style="width: 400px" />
+        <img id="project_image" src="images/spot.png" />
         <h6 style="text-align: center">
           <a href="https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/"
             >Keenans Spot model with diffuse textures</a
           >
         </h6>
         <img />
-        <img
-          id="project_image"
-          src="images/under_construction.gif"
-          width="100px"
-        />
+
+        <p>
+          As you might tell from the render of Spot, I have also implemented
+          perspective projection. The math has begin to get blury for me but I
+          will do my best to try and explain what is going on even though a
+          google search would do you better(this write-up is mostly for my own
+          learning can you tell (; ). Before I implemented perspective
+          projection the scene was being projected as a orthographic view where
+          lines stayed parellel to eachother without a single converging point.
+          With perspective projection verticies farther from the camera seem to
+          converge at a point adding depth. This effect is simulated by adding
+          another dimension to our matrix allowing for homogeneous cordinates.
+          With this 4th dimension we can transform our object in 4D and project
+          back to 3D which involves the dividing of the w component resulting in
+          the perspective effect of some convergence. There is a lot of geomatry
+          that goes on with setting up the perspective matrix that I will not go
+          into detail here<a
+            href="https://youtu.be/U0_ONQQ5ZNM?si=ksRc4wrfEt4xgUaL"
+            >(If you really want to know the magic)</a
+          >.
+        </p>
+
+        <img id="project_image" src="images/teapotpersp.png" />
+        <h6 style="text-align: center">
+          Utah Teapot with Perspective Projection
+        </h6>
 
         <br />
         <a href="https://github.com/arossi09/CRast">Github</a>

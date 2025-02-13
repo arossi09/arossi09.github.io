@@ -345,7 +345,7 @@ marquee {
 }
 
 #project_image {
-  width: 400px;
+  width: 500px;
   align-self: center;
   display: block;
   margin-top: 10px;
@@ -355,6 +355,7 @@ marquee {
   border-style: dashed;
   border-width: 2px;
   border-color: black;
+  max-width: 100%;
 }
 
 .marquee {
