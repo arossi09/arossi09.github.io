@@ -214,10 +214,29 @@
           >.
         </p>
 
+
         <img id="project_image" src="images/teapotpersp.png" />
         <h6 style="text-align: center">
           Utah Teapot with Perspective Projection
         </h6>
+
+        <p>
+        The next step is implementing a view and model matrix so that the
+        camera can be "moved" around the scene. Using Opengl's technique of 
+        having a lookat function which takes the position of the camera,
+        the anchor or position the camera is looking/centered on, and an up
+        vector we can produce a view matrix to move the scene around to imulate
+        a camera moving. I also converted the zbuffer from a simple array
+        to its own TGA_image file where the image type is grayscale and the depth
+        values corelate to each pixel on the screen. This idea came from the 
+        tinyrenderer guide. The final result looks cool and works well.
+        </p>
+
+        <img id="project_image" src="images/zbufferbunny.png" />
+        <h6 style="text-align: center">
+            Stanford bunny's zbuffer file with altered camera position.
+        </h6>
+
 
         <br />
         <a href="https://github.com/arossi09/CRast">Github</a>
