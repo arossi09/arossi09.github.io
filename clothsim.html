@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cloth Simulation</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <div id="container">
+    <body
+      style="
+        background-image: url('images/clothback.png');
+        background-attachment: fixed;
+        background-repeat: repeat;
+        background-size: cover;
+      "
+    >
+      <nav class="navbar" style="background-image: none">
+        <h1 class="logo">
+          <a href="index.html">Anthony Rossi's Web Page</a>
+        </h1>
+        <ul>
+          <li><a href="notes.html">My Notes</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <main>
+          <h1 style="text-align: center">
+              Cloth Simulation in C
+          </h1>
+
+        <h4 style="text-align: center">
+          Progress: <strong>Done!</strong>
+        </h4>
+
+        <p>
+            I've always seen videos of cloth simulations and wondered how they
+            were made and optimized. So, I used some resources and wrote my own
+            over this past weekend which suprisngly was a lot simpler than I expected
+            it to be. I chose to use SDL2 for the graphics library and C for the
+            langauge.
+        </p>
+
+
+
+        <p>
+            I had seen video's prior behind the process of building the sim and knew
+            that the first step was drawing a grid of points to the screen(After setting
+            up and SDL window of course). So I created a struct for each point holding
+            each x and y position and populated a 2D array of these particles. After
+            the data structure was handled I could easily change the arrays parameters
+            to customize the size of grid.
+        </p>
+
+
+        <img id="project_image" src="images/clothgrid.png" />
+        <h6 style="text-align: center; margin-top: 0;">15x10 grid</h6>
+
+
+        <p>
+            With the grid of particles set up we now need to have them react to
+            gravity and after some surfing the web I found that Verlet Integration
+            is a great way to integrate motion and trajectory of particles. With
+            this equation I made a function to update the particles position within
+            the main loop for a final result of the particles falling into the abyss.
+            (I made the gravity variable low for demonstration because it would fall
+            before I could capture it :p).
+        </p>
+
+        <img id="project_image" src="images/particlesfalling.gif" />
+
+
+        <p>
+            Next we need chains/links between each point to act as a restriction
+            so that the points have a set distance where if they exceed they get
+            pulled back together. Luckily, the wikipedia page for Verlet Integration
+            also discussed constraint calcualtion. I pinned the top row and after the 
+            constraints were added and drawn the simulation was basically already working!
+
+        </p>
+
+
+        <img id="project_image" src="images/linkedconstraints.gif" />
+
+
+        <p>
+            Its no fun without the ability to move and alter the cloth so I added
+            the option to delete a particle with left click and applying a drag
+            force with right click. 
+        </p>
+
+
+        <img id="project_image" src="images/drag.gif" />
+
+        <img id="project_image" src="images/delete.gif" />
+
+        <br />
+        <a href="https://github.com/arossi09/CRast">Github</a>
+
+        <div class="date-log">
+          <p style="left: 0">Jan 17, 2025</p>
+        </div>
+        <footer class="footer">
+          © 2025 Anthony's Website | All Rights Reserved
+          <a href="https://github.com/arossi09"
+            ><img src="github.png" alt="GitHub"
+          /></a>
+          <a href="https://www.linkedin.com/in/anthony-rossi-11b9a0278/"
+            ><img src="61109.png" alt="LinkedIn"
+          /></a>
+          <a href="https://www.youtube.com/@kine4255"
+            ><img src="images/youtube.png" alt="LinkedIn"
+          /></a>
+        </footer>
+      </main>
+    </body>
+  </div>
+</html>
