@@ -9,7 +9,7 @@ body {
 	font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 20px;
 	background-color: white;
-	background-Image: url("images/background.png");
+	background-Image: url("images/wavebackground.png");
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
