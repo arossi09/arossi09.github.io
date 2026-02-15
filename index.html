@@ -1,113 +1,163 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Homepage</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+	<head>
+		<title>Homepage</title>
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="reset.css">
+	</head>
 
-  <body>
-    <div id="container">
-      <nav class="navbar">
-        <h1 class="logo">
-          <a href="index.html">Anthony Rossi's Web Page</a>
-        </h1>
-        <ul>
-          <li><a href="notes.html">My Notes</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div id="flex">
-        <aside id="Projects">
-          <h3 style="text-align: center">Projects</h3>
-          <ul style="list-style-type: square; margin-left: -10px">
-              <li>
-                  <a href="whoopsnhoops.html">Whoops N Hoops</a>
-                  <p>Arcade Freestyle Drone Sim in OpenGL</p>
-              </li>
-            <li>
-              <a href="3drender.html">3D Renderer</a>
-              <p>3D renderer built from scratch in c</p>
-            </li>
-            <li>
-              <a href="wavesimulation.html">Ocean Simulation</a>
-              <p>FBM ocean simulation with dynamic LOD</p>
-            </li>
-            <li>
-              <a href="https://kine13.itch.io/eliana-game">Godot Game</a>
-              <p>Indie Platformer in Godot</p>
-            </li>
-            <li>
-              <a href="clothsim.html"
-                >Cloth Simulation</a
-              >
-              <p>Cloth Simulation in C</p>
-            </li>
-            <li>
-              <a href="https://github.com/arossi09/TarClone">TarClone</a>
-              <p>Tape Archive in C</p>
-            </li>
-          </ul>
-        </aside>
+	<body>
+		<div id="container">
+			<nav class="navbar">
+				<h1 class="logo">
+					<a href="index.html">Anthony Rossi's Web Page</a>
+				</h1>
+				<ul>
+					<li><a href="notes.html">My Notes</a></li>
+					<li><a href="resume.html">Resume</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+			<div id="flex-row">
+				<aside >
+					<h3 style="text-align: center">Projects</h3>
+					<ul style="list-style-type: square; margin-left: -10px">
+						<li>
+							<a href="whoopsnhoops.html">Whoops N Hoops</a>
+							<p>Arcade Freestyle Drone Sim in OpenGL</p>
+						</li>
+						<li>
+							<a href="3drender.html">3D Renderer</a>
+							<p>3D renderer built from scratch in c</p>
+						</li>
+						<li>
+							<a href="wavesimulation.html">Ocean Simulation</a>
+							<p>FBM ocean simulation with dynamic LOD</p>
+						</li>
+						<li>
+							<a href="https://kine13.itch.io/eliana-game">Godot Game</a>
+							<p>Indie Platformer in Godot</p>
+						</li>
+						<li>
+							<a href="clothsim.html">Cloth Simulation</a>
+							<p>Cloth Simulation in C</p>
+						</li>
+						<li>
+							<a href="https://github.com/arossi09/TarClone">TarClone</a>
+							<p>Tape Archive in C</p>
+						</li>
+					</ul>
+				</aside>
 
-        <main>
-          <h2 style="text-align: center; margin-top: -10px">HELLO!</h2>
-          <p>
-            I'm from <strong>CA</strong> and currently in my 4th year of
-            Computer Science at <strong>Cal Poly San Luis Obispo</strong>.
-          </p>
+				<main>
+					<h2 style="text-align: center; margin-top: -10px">HELLO!</h2>
+					<p>
+						Welcome to my little corner of the internet! I'm from <strong>Salinas, CA</strong>
+						and currently in my 4th year of
+						Computer Science at <strong>Cal Poly San Luis Obispo</strong>.
+					</p>
 
-          <p>
-            I find my interests in new technology and programming. Currently, my
-            main interests in the field is
+					<p>
+						I find my interests in new technology and programming. Currently, my
+						main interests in the field are
 
-            <strong>graphics.</strong>
-          </p>
+						<strong>networks and graphics.</strong>
+					</p>
 
-          <p>
-            Other than my academics I also enjoy
-            <strong>playing the guitar</strong>, <strong>working out</strong>,
-            <strong>reading</strong>, and many other activities!
-          </p>
-          <h3>Very cool pictures</h3>
-          <marquee direction="right"
-            ><img src="P1010110.jpeg" alt="deer" width="200px" />
-            <img
-              src="images/catwalking.png"
-              width="145px"
-              style="margin-left: 100px" />
-            <img
-              src="woah.png"
-              width="10%"
-              alt="woah"
-              style="margin-left: 100px"
-          /></marquee>
-        </main>
+					<p>
+						Other than my academics I also enjoy
+						<strong>playing the guitar</strong>, <strong>working out</strong>,
+						<strong>reading</strong>, and many other activities!
+					</p>
+					<hr>
+					<div id="flex-row" style="gap:0rem;">
+						<section style="border:none; margin-right: 0px; margin-left: 0px; padding-left:0px;">
+							<h4>Last Photo I took</h4>
+							<img src="images/mountains.JPG">
+							<h6>(Camera currently broken 😔)</h6>
+						</section>
+					<div id="column-flex">
 
-        <aside id="right-sidebar">
-          <h3 style="text-align: center">
-            A.O.T.M <img src="images/CD.gif" width="30px" />
-          </h3>
+						<section>
+							<h4>what I'm reading</h4>
+							<small>
+								100 Years of Solitude &
+							</small>
+							<br>
+							<small>
+								Operating Systems: Three Easy Pieces
+							</small>
+						</section>
+						<section >
+							<h4>changelog</h4>
+							<div class="scroll-area">
+								<small>
+									<b>02.15.26</b> Big revamp for styling and <a href="index.html"> home page</a>
+								</small>
+								<br>
+								<small>
+									<b>01.15.24</b> Website Begins...
+								</small>
+							</div>
+						</section>
 
-          <a
-            href="https://open.spotify.com/album/63HWqUB4iYkqmgxhiAlSkI?si=or0DMJ8YRHWxfxEBtfkS5Q"
-            ><img src="images/album.png" width="130px"
-          /></a>
 
-          <marquee>
-            Kind of Like Spitting - Nothing Makes Sense Without It <img src="images/catwalking.gif"
-          /></marquee>
-          <a
-            href="breadblog.html"
-            style="text-decoration: underline; margin: 50px 50px"
-            >Blog</a
-          >
-        </aside>
-      </div>
-      <footer class="footer">
-        © 2026 Anthony's Website | All Rights Reserved
-      </footer>
-    </div>
-  </body>
+						<section style="margin-top: 20px">
+							<h4>Recently Played</h4>
+
+							<img src="images/music.gif">
+							<small><span id="song">&#8987;</span></small>
+							<img class="radio" width="100px"src="images/radio.png">
+
+						</section>
+
+
+					</div>
+
+					<script type="text/javascript">
+						let user = 'k1n3';
+						let url = 'https://lastfm-last-played.biancarosa.com.br/' + user + '/latest-song';
+						let song = document.querySelector('#song');
+						fetch(url)
+							.then(function (response) {
+								return response.json()
+							}).then(function (json) {
+								song.innerHTML = json['track']['name'] + ' - ' + json['track']['artist']['#text'];
+							});
+					</script>
+					</div>
+					<hr>
+					<marquee direction="right">
+						<img src="images/vim.gif">
+						<img src="images/es.png">
+						<img src="images/gnu-linux.gif">
+					</marquee>
+				</main>
+
+				<aside >
+					<h3 style="text-align: center">
+						A.O.T.M <img src="images/CD.gif" width="30px">
+					</h3>
+
+					<a href="https://open.spotify.com/album/5GZzEZe3bNvetZJvzrG33j?si=dO4kg8EDTAqWcc69YLZHgQ"><img class="album-image"
+					     src="images/album.png"
+					></a>
+					<marquee style="margin-top: 0px;">
+						LIVE at Grimz - Rehash <img src="images/catwalking.gif">
+					</marquee>
+
+					<h3>Hobbies</h3>
+					<a href="breadblog.html">Blog</a>
+
+					<a href="photos.html">Photos</a>
+
+					<a href="library.html">Library</a>
+				</aside>
+			</div>
+			<footer class="footer">
+				© 2026 Anthony's Website | All Rights Reserved
+			</footer>
+		</div>
+	</body>
 </html>
